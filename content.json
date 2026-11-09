@@ -1,80 +1,1090 @@
 {
-  "version": 1,
-  "sets": [
+ "version": 2,
+ "sets": [
+  {
+   "id": "day1",
+   "title": "1주 · 10분 훈련 (기본)",
+   "questions": [
     {
-      "id": "day1",
-      "title": "10분 훈련 · 1~5형식 기본",
-      "questions": [
-        { "id": "q1", "tag": "2형식 감각동사", "level": "", "ko": "이 커피는 정말 쓴맛이 난다.",
-          "hint": "맛이 나다(taste) / 정말 쓴(really bitter)",
-          "bone": "주어는 + 맛이 난다(tastes) + [어떠한 상태(형용사)]",
-          "answer": "This coffee tastes really bitter.",
-          "explain": "한국어로는 '쓰게 맛이 난다' 같지만 주어(This coffee)의 상태를 설명하는 2형식 보어 자리이므로 부사(bitterly)가 아닌 <b>형용사(bitter)</b>를 씁니다." },
-        { "id": "q2", "tag": "4형식 수여동사", "level": "", "ko": "그녀는 나에게 이메일을 보냈다.",
-          "hint": "보내다(send - 과거형 sent) / 이메일(an email)",
-          "bone": "누가 + 보냈다 + [누구에게(사람)] + [무엇을(사물)]",
-          "answer": "She sent me an email.",
-          "explain": "4형식 동사(give, send, buy, show)는 전치사 없이 <b>[받는 사람(me)] + [사물(an email)]</b> 순서로 바로 연결합니다." },
-        { "id": "q3", "tag": "3형식 함정 동사 (집중!)", "level": "warn", "ko": "그녀는 나에게 좋은 아이디어를 제안했다.",
-          "hint": "제안하다(suggest) / 좋은 아이디어(a good idea)",
-          "bone": "누가 + 제안했다 + [무엇을] + (to 사람)",
-          "answer": "She suggested a good idea to me.",
-          "explain": "<b>explain, suggest, introduce</b>는 4형식(suggested me a good idea)으로 쓸 수 없습니다. <b>[무엇을]</b> 먼저 쓰고 <b>to me</b>를 뒤로 뺍니다." },
-        { "id": "q4", "tag": "5형식 일반 행동", "level": "", "ko": "나는 네가 나에게 진실을 말하기를 원한다.",
-          "hint": "원하다(want) / 나에게 진실을 말하다(tell me the truth)",
-          "bone": "누가 + 원한다 + [누구가] + [to 동사하도록]",
-          "answer": "I want you to tell me the truth.",
-          "explain": "일반 5형식 동사(want, allow, ask, tell)는 목적어(you)가 할 행동 앞에 반드시 <b>to</b>를 붙입니다." },
-        { "id": "q5", "tag": "5형식 가목적어 it (취약점 1순위)", "level": "err", "ko": "빠른 인터넷은 우리가 집에서 일하는 것을 더 쉽게 만들어 준다.",
-          "hint": "Fast internet / 더 쉽게(easier) / 집에서 일하다(work from home)",
-          "bone": "주어는 + makes it [형용사] + (for 사람) + to 동사",
-          "answer": "Fast internet makes it easier for us to work from home.",
-          "explain": "<i>makes us easy (X)</i>! 가짜 목적어 <b>it</b>을 먼저 세우고 <b>for us to work~</b>를 뒤로 보내는 뼈대입니다." },
-        { "id": "q6", "tag": "단복수 & 부사 & 전치사 복습", "level": "err", "ko": "내가 지난주에 온라인으로 샀던 그 셔츠는 나에게 너무 작다.",
-          "hint": "셔츠 1벌(shirt) / 온라인으로(online) / 나에게(for me)",
-          "bone": "",
-          "answer": "The shirt that I bought online last week is too small for me.",
-          "explain": "• 셔츠 한 벌은 단수 <b>shirt</b> (+ 동사 <b>is</b>)<br>• <b>online</b>은 부사이므로 앞에 on 금지!<br>• 치수가 나에게 맞다/작다 할 때는 <b>for me</b>!" }
-      ]
+     "id": "q1",
+     "tag": "2형식 감각동사",
+     "level": "",
+     "ko": "이 커피는 정말 쓴맛이 난다.",
+     "hint": "맛이 나다(taste) / 정말 쓴(really bitter)",
+     "bone": "주어는 + 맛이 난다(tastes) + [어떠한 상태(형용사)]",
+     "answer": "This coffee tastes really bitter.",
+     "explain": "한국어로는 '쓰게 맛이 난다' 같지만 주어(This coffee)의 상태를 설명하는 2형식 보어 자리이므로 부사(bitterly)가 아닌 <b>형용사(bitter)</b>를 씁니다."
     },
     {
-      "id": "pop1",
-      "title": "🎵 팝송 · Bruno Mars",
-      "questions": [
-        { "id": "p1", "tag": "Just the Way You Are · 2형식", "level": "", "ko": "너는 오늘 밤 정말 멋져(놀라워) 보인다.",
-          "hint": "보이다(look) / 놀라운·멋진(amazing) / 오늘 밤(tonight)", "bone": "",
-          "answer": "You look amazing tonight.",
-          "explain": "2형식 감각동사(look) + 형용사 보어(amazing)! 부사(amazingly)를 쓰지 않습니다." },
-        { "id": "p2", "tag": "When I Was Your Man · 4형식", "level": "", "ko": "내가 너에게 꽃을 사줄게.",
-          "hint": "I will buy 활용 / 꽃들(flowers)", "bone": "",
-          "answer": "I will buy you flowers.",
-          "explain": "4형식 동사 buy + [누구에게(you)] + [무엇을(flowers)] 어순입니다." },
-        { "id": "p3", "tag": "That's What I Like · 5형식 사역", "level": "", "ko": "네 목소리는 나를 미소 짓게 만든다.",
-          "hint": "네 목소리(Your voice - 단수!) / 미소 짓다(smile)", "bone": "",
-          "answer": "Your voice makes me smile.",
-          "explain": "사역동사 make + 목적어(me) + 동사원형(smile)! 주어가 3인칭 단수이므로 <b>makes</b>를 씁니다." }
-      ]
+     "id": "q2",
+     "tag": "4형식 수여동사",
+     "level": "",
+     "ko": "그녀는 나에게 이메일을 보냈다.",
+     "hint": "보내다(send - 과거형 sent) / 이메일(an email)",
+     "bone": "누가 + 보냈다 + [누구에게(사람)] + [무엇을(사물)]",
+     "answer": "She sent me an email.",
+     "explain": "4형식 동사(give, send, buy, show)는 전치사 없이 <b>[받는 사람(me)] + [사물(an email)]</b> 순서로 바로 연결합니다."
+    },
+    {
+     "id": "q3",
+     "tag": "3형식 함정 동사 (집중!)",
+     "level": "warn",
+     "ko": "그녀는 나에게 좋은 아이디어를 제안했다.",
+     "hint": "제안하다(suggest) / 좋은 아이디어(a good idea)",
+     "bone": "누가 + 제안했다 + [무엇을] + (to 사람)",
+     "answer": "She suggested a good idea to me.",
+     "explain": "<b>explain, suggest, introduce</b>는 4형식(suggested me a good idea)으로 쓸 수 없습니다. <b>[무엇을]</b> 먼저 쓰고 <b>to me</b>를 뒤로 뺍니다."
+    },
+    {
+     "id": "q4",
+     "tag": "5형식 일반 행동",
+     "level": "",
+     "ko": "나는 네가 나에게 진실을 말하기를 원한다.",
+     "hint": "원하다(want) / 나에게 진실을 말하다(tell me the truth)",
+     "bone": "누가 + 원한다 + [누구가] + [to 동사하도록]",
+     "answer": "I want you to tell me the truth.",
+     "explain": "일반 5형식 동사(want, allow, ask, tell)는 목적어(you)가 할 행동 앞에 반드시 <b>to</b>를 붙입니다."
+    },
+    {
+     "id": "q5",
+     "tag": "5형식 가목적어 it (취약점 1순위)",
+     "level": "err",
+     "ko": "빠른 인터넷은 우리가 집에서 일하는 것을 더 쉽게 만들어 준다.",
+     "hint": "Fast internet / 더 쉽게(easier) / 집에서 일하다(work from home)",
+     "bone": "주어는 + makes it [형용사] + (for 사람) + to 동사",
+     "answer": "Fast internet makes it easier for us to work from home.",
+     "explain": "<i>makes us easy (X)</i>! 가짜 목적어 <b>it</b>을 먼저 세우고 <b>for us to work~</b>를 뒤로 보내는 뼈대입니다."
+    },
+    {
+     "id": "q6",
+     "tag": "단복수 & 부사 & 전치사 복습",
+     "level": "err",
+     "ko": "내가 지난주에 온라인으로 샀던 그 셔츠는 나에게 너무 작다.",
+     "hint": "셔츠 1벌(shirt) / 온라인으로(online) / 나에게(for me)",
+     "bone": "",
+     "answer": "The shirt that I bought online last week is too small for me.",
+     "explain": "• 셔츠 한 벌은 단수 <b>shirt</b> (+ 동사 <b>is</b>)<br>• <b>online</b>은 부사이므로 앞에 on 금지!<br>• 치수가 나에게 맞다/작다 할 때는 <b>for me</b>!"
     }
-  ],
-  "cheatsheet": [
-    { "title": "1형식 (누가 + 간다/일어난다)", "body": "An accident <b>happened</b> last night. (수동태 불가!)" },
-    { "title": "2형식 (누가 + 이다/보인다 + [형용사 상태])", "body": "The soup <b>smells [wonderful]</b>. / The plan <b>looks [perfect]</b>." },
-    { "title": "3형식 (누가 + ~한다 + [무엇을])", "body": "She <b>explained [nothing]</b> (to me). / We <b>discussed [the plan]</b>." },
-    { "title": "4형식 (누가 + 준다 + [누구에게] + [무엇을])", "body": "He <b>sent [me] [a message]</b>. (사람 먼저, 사물 나중!)" },
-    { "title": "5형식 (누가 + 만든다 + [대상을] + [상태/행동으로])", "body": "• 상태: It <b>keeps [me] [warm]</b>.<br>• 일반 행동: He <b>allowed [me] [to leave]</b>.<br>• 사역 행동: He <b>made [me] [recheck]</b>.<br>• 가목적어: It <b>makes [it] [easier]</b> for us <b>[to stay]</b> healthy." }
-  ],
-  "mistakes": [
-    { "title": "5형식 가목적어 it", "wrong": "makes us easy to keep", "right": "makes it easier for us to stay" },
-    { "title": "2형식 감각동사 + 형용사", "wrong": "smells wonderfully", "right": "smells wonderful" },
-    { "title": "4형식 어순 & 3형식 explain/suggest", "wrong": "suggested me an idea", "right": "suggested an idea to me" },
-    { "title": "5형식 일반(to V) vs 사역(원형)", "wrong": "allowed me leave", "right": "allowed me to leave" },
-    { "title": "단복수(shirt/news) & 부사(online)", "wrong": "shirts... on online is... to me", "right": "shirt... online is... for me" },
-    { "title": "과거 시간 부사절 시제 일치", "wrong": "before I have slept", "right": "before I went to bed" }
-  ],
-  "roadmap": [
-    { "id": "w1", "title": "1주 차: 문장 뼈대 바로잡기", "desc": "1~5형식 어순, explain/suggest, 가목적어 it, shirt/news" },
-    { "id": "w2", "title": "2주 차: 전치사 감각과 부사의 독립", "desc": "전치사 금지 부사(online, home), to vs for, 자·타동사" },
-    { "id": "w3", "title": "3주 차: 시제 디테일과 원어민 패턴", "desc": "시간/조건 부사절 시제 일치, 완료진행형, 상태 vs 동작" },
-    { "id": "w4", "title": "4주 차: 준동사와 복합문 고급 영작", "desc": "동명사 주어(Giving up~), because vs because of 전환" }
-  ]
+   ],
+   "week": 1
+  },
+  {
+   "id": "w1concept",
+   "week": 1,
+   "title": "1주 · 1~5형식 개념 퀴즈",
+   "questions": [
+    {
+     "id": "c1",
+     "tag": "1형식 개념",
+     "level": "",
+     "ko": "1형식의 필수 요소는? 예문도 하나 말해 보세요.",
+     "hint": "",
+     "bone": "",
+     "answer": "주어 + 동사(완전자동사). 예: The baby sleeps. / An accident happened.",
+     "explain": "목적어도 보어도 필요 없는 동사. 뒤에 붙는 장소·시간(last night, in the room)은 <b>수식어</b>일 뿐 문장 요소가 아니에요.",
+     "placeholder": "한국어로 답해 보세요"
+    },
+    {
+     "id": "c2",
+     "tag": "2형식 개념",
+     "level": "",
+     "ko": "2형식의 필수 요소와, 보어 자리에 올 수 있는 품사는?",
+     "hint": "",
+     "bone": "",
+     "answer": "주어 + 동사 + 주격보어. 보어 자리에는 <b>명사나 형용사</b>(부사 X).",
+     "explain": "be, become, look, sound, smell, taste, feel, seem, get 등. 보어는 <b>주어의 상태</b>를 설명해요. She looks <b>happy</b>(O) / happily(X).",
+     "placeholder": "한국어로 답해 보세요"
+    },
+    {
+     "id": "c3",
+     "tag": "3형식 개념",
+     "level": "",
+     "ko": "3형식의 필수 요소는? 목적어는 한국어로 보통 어떻게 해석되나요?",
+     "hint": "",
+     "bone": "",
+     "answer": "주어 + 동사 + 목적어. 목적어는 보통 '~을/를'로 해석돼요.",
+     "explain": "단, <b>discuss, marry, reach, enter</b>처럼 한국어로는 '~에 대해/~와/~에'로 해석되지만 영어에선 바로 목적어를 받는 동사가 함정이에요.",
+     "placeholder": "한국어로 답해 보세요"
+    },
+    {
+     "id": "c4",
+     "tag": "4형식 개념",
+     "level": "warn",
+     "ko": "4형식의 필수 요소와 어순은? 3형식으로 바꾸면 어떻게 되나요?",
+     "hint": "",
+     "bone": "",
+     "answer": "주어 + 동사 + 간접목적어(사람에게) + 직접목적어(사물을). 3형식 전환: 주어 + 동사 + 사물 + to/for + 사람.",
+     "explain": "He gave <b>me a book</b> → He gave <b>a book to me</b>. buy/make/cook/get은 <b>for</b>: She bought me a bag → She bought a bag <b>for</b> me.",
+     "placeholder": "한국어로 답해 보세요"
+    },
+    {
+     "id": "c5",
+     "tag": "5형식 개념",
+     "level": "",
+     "ko": "5형식의 필수 요소는? 목적격보어 자리에 올 수 있는 것 4가지는?",
+     "hint": "",
+     "bone": "",
+     "answer": "주어 + 동사 + 목적어 + 목적격보어. 보어 자리: 명사 / 형용사 / to부정사 / 동사원형(사역·지각동사).",
+     "explain": "They call him <b>Tom</b>(명사) / It keeps me <b>warm</b>(형용사) / I want you <b>to go</b>(to V) / She made me <b>laugh</b>(원형).",
+     "placeholder": "한국어로 답해 보세요"
+    },
+    {
+     "id": "c6",
+     "tag": "4형식 vs 5형식 구별",
+     "level": "warn",
+     "ko": "'She made me a cake'와 'She made me happy'는 각각 몇 형식인가요? 구별하는 기준은?",
+     "hint": "",
+     "bone": "",
+     "answer": "앞은 4형식(나에게 케이크를 만들어 줬다), 뒤는 5형식(나를 행복하게 만들었다). 기준: 목적어 = 뒤의 말 관계가 성립하면 5형식.",
+     "explain": "me ≠ a cake → 4형식. me = happy(내가 행복함) → 5형식. <b>'목적어가 ~이다/~하다'가 말이 되는지</b> 확인하세요.",
+     "placeholder": "한국어로 답해 보세요"
+    },
+    {
+     "id": "c7",
+     "tag": "2형식 함정",
+     "level": "err",
+     "ko": "'The soup smells wonderfully'가 틀린 이유는?",
+     "hint": "",
+     "bone": "",
+     "answer": "smell은 2형식 감각동사라서 뒤에 주어의 상태를 나타내는 형용사 보어가 와야 해요. → smells wonderful.",
+     "explain": "한국어 '훌륭하게 냄새가 난다'에 끌려서 부사를 쓰기 쉬워요. 감각동사(look, sound, smell, taste, feel) 뒤는 <b>무조건 형용사</b>.",
+     "placeholder": "한국어로 답해 보세요"
+    },
+    {
+     "id": "c8",
+     "tag": "5형식 가목적어",
+     "level": "err",
+     "ko": "'makes it easier for us to work'에서 it, easier, for us, to work의 역할은?",
+     "hint": "",
+     "bone": "",
+     "answer": "it = 가목적어, easier = 목적격보어(형용사), for us = 의미상 주어, to work = 진짜 목적어.",
+     "explain": "5형식에서 to부정사가 목적어면 길어서 뒤로 보내고 그 자리에 <b>it</b>을 세워요. make/find/think/consider + it + 형용사 + to V.",
+     "placeholder": "한국어로 답해 보세요"
+    }
+   ]
+  },
+  {
+   "id": "w1judge",
+   "week": 1,
+   "title": "1주 · 형식 판별",
+   "questions": [
+    {
+     "id": "j1",
+     "tag": "형식 판별",
+     "level": "",
+     "ko": "다음 문장은 몇 형식? \"The news sounds strange.\"",
+     "hint": "",
+     "bone": "",
+     "answer": "2형식",
+     "explain": "sound(감각동사) + strange(형용사 보어). 그리고 <b>news는 단수</b> → sounds.",
+     "placeholder": "한국어로 답해 보세요"
+    },
+    {
+     "id": "j2",
+     "tag": "형식 판별",
+     "level": "",
+     "ko": "다음 문장은 몇 형식? \"She told me the truth.\"",
+     "hint": "",
+     "bone": "",
+     "answer": "4형식",
+     "explain": "told + me(간접목적어) + the truth(직접목적어). 3형식으로 바꾸면 She told the truth <b>to</b> me.",
+     "placeholder": "한국어로 답해 보세요"
+    },
+    {
+     "id": "j3",
+     "tag": "형식 판별",
+     "level": "warn",
+     "ko": "다음 문장은 몇 형식? \"She told me to wait.\"",
+     "hint": "",
+     "bone": "",
+     "answer": "5형식",
+     "explain": "me가 wait하는 주체 → 목적어 + to V 목적격보어. tell은 4형식·5형식 둘 다 가능한 동사예요.",
+     "placeholder": "한국어로 답해 보세요"
+    },
+    {
+     "id": "j4",
+     "tag": "형식 판별",
+     "level": "",
+     "ko": "다음 문장은 몇 형식? \"We arrived at the station at 9.\"",
+     "hint": "",
+     "bone": "",
+     "answer": "1형식",
+     "explain": "arrive는 자동사. at the station, at 9는 모두 수식어(부사구).",
+     "placeholder": "한국어로 답해 보세요"
+    },
+    {
+     "id": "j5",
+     "tag": "형식 판별",
+     "level": "warn",
+     "ko": "다음 문장은 몇 형식? \"I found the book easy.\"",
+     "hint": "",
+     "bone": "",
+     "answer": "5형식 (책이 쉽다는 걸 알게 됐다)",
+     "explain": "the book = easy 관계 성립 → 5형식. 'I found the book easily'는 '책을 쉽게 찾았다'(3형식)로 뜻이 완전히 달라져요.",
+     "placeholder": "한국어로 답해 보세요"
+    },
+    {
+     "id": "j6",
+     "tag": "형식 판별",
+     "level": "err",
+     "ko": "다음 문장은 몇 형식? \"He explained the rule to us.\"",
+     "hint": "",
+     "bone": "",
+     "answer": "3형식",
+     "explain": "explain은 4형식 불가 동사. explained <b>us</b> the rule (X).",
+     "placeholder": "한국어로 답해 보세요"
+    }
+   ]
+  },
+  {
+   "id": "w1w234",
+   "week": 1,
+   "title": "1주 · 2·3·4형식 영작",
+   "questions": [
+    {
+     "id": "a1",
+     "tag": "2형식 감각동사",
+     "level": "",
+     "ko": "그 계획은 완벽해 보인다.",
+     "hint": "계획(plan) / 보이다(look)",
+     "bone": "주어 + looks + [형용사]",
+     "answer": "The plan looks perfect.",
+     "explain": "look + 형용사(perfect). perfectly (X)."
+    },
+    {
+     "id": "a2",
+     "tag": "2형식 become",
+     "level": "",
+     "ko": "그는 작년에 선생님이 되었다.",
+     "hint": "되다(become-became)",
+     "bone": "",
+     "answer": "He became a teacher last year.",
+     "explain": "become + 명사 보어."
+    },
+    {
+     "id": "a3",
+     "tag": "3형식 discuss",
+     "level": "warn",
+     "ko": "우리는 회의에서 그 문제를 논의했다.",
+     "hint": "논의하다(discuss)",
+     "bone": "",
+     "answer": "We discussed the problem at the meeting.",
+     "explain": "discuss <b>about</b> (X). discuss는 바로 목적어를 받는 타동사."
+    },
+    {
+     "id": "a4",
+     "tag": "3형식 explain",
+     "level": "err",
+     "ko": "그는 우리에게 규칙을 설명해 주었다.",
+     "hint": "설명하다(explain)",
+     "bone": "주어 + explained + [무엇을] + to 사람",
+     "answer": "He explained the rules to us.",
+     "explain": "explained us the rules (X). [무엇을] 먼저, <b>to us</b>는 뒤로."
+    },
+    {
+     "id": "a5",
+     "tag": "4형식 show",
+     "level": "",
+     "ko": "내 친구가 나에게 자기 사진들을 보여 줬다.",
+     "hint": "보여주다(show-showed)",
+     "bone": "",
+     "answer": "My friend showed me his photos.",
+     "explain": "show + 사람 + 사물. (her photos도 OK)"
+    },
+    {
+     "id": "a6",
+     "tag": "4형식→3형식 for",
+     "level": "warn",
+     "ko": "엄마가 나에게 저녁을 요리해 주셨다. (3형식으로)",
+     "hint": "요리하다(cook)",
+     "bone": "",
+     "answer": "My mom cooked dinner for me.",
+     "explain": "cook, buy, make, get은 3형식 전환 시 <b>for</b>. (4형식: My mom cooked me dinner.)"
+    }
+   ]
+  },
+  {
+   "id": "w1w5",
+   "week": 1,
+   "title": "1주 · 5형식 집중",
+   "questions": [
+    {
+     "id": "b1",
+     "tag": "5형식 형용사 보어",
+     "level": "",
+     "ko": "이 재킷은 나를 따뜻하게 해 준다.",
+     "hint": "유지하다(keep)",
+     "bone": "주어 + keeps + [대상] + [상태]",
+     "answer": "This jacket keeps me warm.",
+     "explain": "keep + 목적어 + 형용사. warmly (X)."
+    },
+    {
+     "id": "b2",
+     "tag": "5형식 to V",
+     "level": "err",
+     "ko": "선생님은 우리가 일찍 떠나도록 허락해 주셨다.",
+     "hint": "허락하다(allow)",
+     "bone": "",
+     "answer": "The teacher allowed us to leave early.",
+     "explain": "allow, want, ask, tell, expect + 목적어 + <b>to V</b>."
+    },
+    {
+     "id": "b3",
+     "tag": "5형식 사역 원형",
+     "level": "warn",
+     "ko": "그녀는 내가 보고서를 다시 확인하게 시켰다.",
+     "hint": "시키다(make) / 확인하다(check)",
+     "bone": "",
+     "answer": "She made me check the report again.",
+     "explain": "사역동사 make/have/let + 목적어 + <b>동사원형</b>. to check (X)."
+    },
+    {
+     "id": "b4",
+     "tag": "5형식 let",
+     "level": "",
+     "ko": "부모님은 내가 혼자 여행하게 해 주셨다.",
+     "hint": "let / 혼자(alone)",
+     "bone": "",
+     "answer": "My parents let me travel alone.",
+     "explain": "let + 목적어 + 원형. allow로 쓰면 allowed me <b>to</b> travel."
+    },
+    {
+     "id": "b5",
+     "tag": "5형식 가목적어 it",
+     "level": "err",
+     "ko": "나는 아침에 일찍 일어나는 것이 어렵다고 생각한다.",
+     "hint": "find / 어려운(hard)",
+     "bone": "주어 + find + it + [형용사] + to 동사",
+     "answer": "I find it hard to wake up early in the morning.",
+     "explain": "find + <b>it</b> + 형용사 + to V. I find waking up early hard 도 맞지만 가목적어가 더 자연스러워요."
+    },
+    {
+     "id": "b6",
+     "tag": "5형식 가목적어 it",
+     "level": "err",
+     "ko": "운동은 내가 건강을 유지하는 것을 더 쉽게 만들어 준다.",
+     "hint": "Exercise / 건강을 유지하다(stay healthy)",
+     "bone": "",
+     "answer": "Exercise makes it easier for me to stay healthy.",
+     "explain": "makes me easy to stay (X). <b>it</b> + easier + <b>for me</b> + to stay."
+    }
+   ]
+  },
+  {
+   "id": "w2adv",
+   "week": 2,
+   "title": "2주 · 전치사 금지 부사",
+   "questions": [
+    {
+     "id": "d1",
+     "tag": "online",
+     "level": "err",
+     "ko": "나는 그 티켓을 온라인으로 샀다.",
+     "hint": "online",
+     "bone": "",
+     "answer": "I bought the ticket online.",
+     "explain": "online은 부사 → <b>on</b> online (X)."
+    },
+    {
+     "id": "d2",
+     "tag": "home",
+     "level": "warn",
+     "ko": "나는 어제 일찍 집에 갔다.",
+     "hint": "home",
+     "bone": "",
+     "answer": "I went home early yesterday.",
+     "explain": "home(부사) 앞에 to 금지. went to home (X). 단, at home은 OK."
+    },
+    {
+     "id": "d3",
+     "tag": "abroad",
+     "level": "",
+     "ko": "그녀는 내년에 해외에서 공부할 것이다.",
+     "hint": "해외에서(abroad)",
+     "bone": "",
+     "answer": "She will study abroad next year.",
+     "explain": "abroad 앞에 in/to 금지."
+    },
+    {
+     "id": "d4",
+     "tag": "downtown",
+     "level": "",
+     "ko": "우리는 주말마다 시내에 간다.",
+     "hint": "시내에(downtown)",
+     "bone": "",
+     "answer": "We go downtown every weekend.",
+     "explain": "downtown도 부사 → to downtown (X)."
+    },
+    {
+     "id": "d5",
+     "tag": "upstairs",
+     "level": "",
+     "ko": "그는 위층으로 올라가서 잠이 들었다.",
+     "hint": "위층으로(upstairs) / 잠들다(fall asleep)",
+     "bone": "",
+     "answer": "He went upstairs and fell asleep.",
+     "explain": "upstairs/downstairs/here/there/overseas 모두 전치사 없이."
+    },
+    {
+     "id": "d6",
+     "tag": "work from home",
+     "level": "",
+     "ko": "요즘 많은 사람들이 재택근무를 한다.",
+     "hint": "재택근무하다(work from home)",
+     "bone": "",
+     "answer": "These days, many people work from home.",
+     "explain": "'work from home'은 굳은 표현. work at home도 가능하지만 '재택근무'는 from home."
+    }
+   ]
+  },
+  {
+   "id": "w2tofor",
+   "week": 2,
+   "title": "2주 · to vs for",
+   "questions": [
+    {
+     "id": "e1",
+     "tag": "give → to",
+     "level": "",
+     "ko": "그는 그 편지를 그녀에게 줬다. (3형식으로)",
+     "hint": "give",
+     "bone": "",
+     "answer": "He gave the letter to her.",
+     "explain": "give, send, show, tell, teach, lend → <b>to</b>."
+    },
+    {
+     "id": "e2",
+     "tag": "buy → for",
+     "level": "warn",
+     "ko": "나는 아빠에게 넥타이를 사 드렸다. (3형식으로)",
+     "hint": "buy",
+     "bone": "",
+     "answer": "I bought a tie for my dad.",
+     "explain": "buy, make, cook, get, find → <b>for</b>."
+    },
+    {
+     "id": "e3",
+     "tag": "치수 for",
+     "level": "err",
+     "ko": "이 신발은 나에게 너무 크다.",
+     "hint": "신발(shoes - 복수!)",
+     "bone": "",
+     "answer": "These shoes are too big for me.",
+     "explain": "크기·난이도가 '나에게' → <b>for me</b>. to me (X). shoes는 복수 → are."
+    },
+    {
+     "id": "e4",
+     "tag": "의견 to",
+     "level": "",
+     "ko": "그 계획은 나에게 이상하게 들린다.",
+     "hint": "sound / 이상한(strange)",
+     "bone": "",
+     "answer": "The plan sounds strange to me.",
+     "explain": "'내 생각에는' 느낌의 판단·인식 → <b>to me</b>."
+    },
+    {
+     "id": "e5",
+     "tag": "explain to",
+     "level": "err",
+     "ko": "제가 그것을 다시 설명해 드릴게요.",
+     "hint": "Let me ~",
+     "bone": "",
+     "answer": "Let me explain it to you again.",
+     "explain": "explain + 사물 + <b>to</b> 사람."
+    },
+    {
+     "id": "e6",
+     "tag": "important for",
+     "level": "",
+     "ko": "운동은 모든 사람에게 중요하다.",
+     "hint": "중요한(important)",
+     "bone": "",
+     "answer": "Exercise is important for everyone.",
+     "explain": "important, good, difficult, easy + <b>for</b> 사람."
+    }
+   ]
+  },
+  {
+   "id": "w2verb",
+   "week": 2,
+   "title": "2주 · 자동사 vs 타동사",
+   "questions": [
+    {
+     "id": "f1",
+     "tag": "marry",
+     "level": "warn",
+     "ko": "그녀는 작년에 그와 결혼했다.",
+     "hint": "결혼하다(marry)",
+     "bone": "",
+     "answer": "She married him last year.",
+     "explain": "marry <b>with</b> him (X). (got married <b>to</b> him은 OK)"
+    },
+    {
+     "id": "f2",
+     "tag": "reach",
+     "level": "",
+     "ko": "우리는 자정에 정상에 도달했다.",
+     "hint": "도달하다(reach)",
+     "bone": "",
+     "answer": "We reached the top at midnight.",
+     "explain": "reach <b>to</b> (X). arrive <b>at</b> / get <b>to</b>와 구별."
+    },
+    {
+     "id": "f3",
+     "tag": "arrive",
+     "level": "",
+     "ko": "우리는 오후 3시에 공항에 도착했다.",
+     "hint": "도착하다(arrive)",
+     "bone": "",
+     "answer": "We arrived at the airport at 3 p.m.",
+     "explain": "arrive는 자동사 → 장소 앞에 at/in 필요. arrived the airport (X)."
+    },
+    {
+     "id": "f4",
+     "tag": "listen to",
+     "level": "",
+     "ko": "나는 출근길에 팟캐스트를 듣는다.",
+     "hint": "듣다(listen) / 출근길에(on my way to work)",
+     "bone": "",
+     "answer": "I listen to podcasts on my way to work.",
+     "explain": "listen은 자동사 → <b>to</b> 필수. hear는 타동사."
+    },
+    {
+     "id": "f5",
+     "tag": "enter",
+     "level": "warn",
+     "ko": "그는 노크 없이 방에 들어왔다.",
+     "hint": "들어오다(enter)",
+     "bone": "",
+     "answer": "He entered the room without knocking.",
+     "explain": "enter <b>into</b> the room (X). without 뒤에는 동명사."
+    },
+    {
+     "id": "f6",
+     "tag": "happen 수동태 불가",
+     "level": "warn",
+     "ko": "어젯밤에 사고가 일어났다.",
+     "hint": "happen",
+     "bone": "",
+     "answer": "An accident happened last night.",
+     "explain": "happen은 1형식 자동사 → was happened (X)."
+    }
+   ]
+  },
+  {
+   "id": "w3clause",
+   "week": 3,
+   "title": "3주 · 부사절 시제",
+   "questions": [
+    {
+     "id": "g1",
+     "tag": "시간 부사절 미래",
+     "level": "warn",
+     "ko": "네가 도착하면 나에게 전화해.",
+     "hint": "when",
+     "bone": "",
+     "answer": "Call me when you arrive.",
+     "explain": "시간·조건 부사절에서는 미래라도 <b>현재형</b>. when you will arrive (X)."
+    },
+    {
+     "id": "g2",
+     "tag": "조건 부사절",
+     "level": "",
+     "ko": "내일 비가 오면 우리는 집에 있을 것이다.",
+     "hint": "If / 집에 있다(stay home)",
+     "bone": "",
+     "answer": "If it rains tomorrow, we will stay home.",
+     "explain": "If it will rain (X). 주절은 will 그대로."
+    },
+    {
+     "id": "g3",
+     "tag": "과거 시제 일치",
+     "level": "err",
+     "ko": "나는 어젯밤 자기 전에 숙제를 끝냈다.",
+     "hint": "before / 자러 가다(go to bed)",
+     "bone": "",
+     "answer": "I finished my homework before I went to bed last night.",
+     "explain": "과거 이야기면 부사절도 <b>과거</b>. before I have slept (X)."
+    },
+    {
+     "id": "g4",
+     "tag": "until",
+     "level": "",
+     "ko": "그가 돌아올 때까지 여기서 기다릴게.",
+     "hint": "until / 돌아오다(come back)",
+     "bone": "",
+     "answer": "I'll wait here until he comes back.",
+     "explain": "until he will come (X)."
+    },
+    {
+     "id": "g5",
+     "tag": "as soon as",
+     "level": "",
+     "ko": "집에 도착하자마자 문자할게.",
+     "hint": "as soon as / 문자하다(text)",
+     "bone": "",
+     "answer": "I'll text you as soon as I get home.",
+     "explain": "as soon as + 현재형. get home(home 앞 to 없음!)."
+    },
+    {
+     "id": "g6",
+     "tag": "과거 + when",
+     "level": "",
+     "ko": "내가 전화했을 때 그녀는 자고 있었다.",
+     "hint": "과거진행",
+     "bone": "",
+     "answer": "She was sleeping when I called.",
+     "explain": "진행 중이던 동작(과거진행) + 끼어든 사건(과거)."
+    }
+   ]
+  },
+  {
+   "id": "w3perfect",
+   "week": 3,
+   "title": "3주 · 완료 · 완료진행",
+   "questions": [
+    {
+     "id": "h1",
+     "tag": "현재완료 for",
+     "level": "warn",
+     "ko": "나는 서울에서 5년 동안 살고 있다.",
+     "hint": "for five years",
+     "bone": "",
+     "answer": "I have lived in Seoul for five years.",
+     "explain": "과거부터 지금까지 → 현재완료. I live in Seoul for 5 years (X)."
+    },
+    {
+     "id": "h2",
+     "tag": "since",
+     "level": "",
+     "ko": "나는 2020년부터 이 회사에서 일해 왔다.",
+     "hint": "since",
+     "bone": "",
+     "answer": "I have worked at this company since 2020.",
+     "explain": "since + 시작 시점. (have been working도 OK)"
+    },
+    {
+     "id": "h3",
+     "tag": "현재완료진행",
+     "level": "",
+     "ko": "나는 두 시간째 너를 기다리고 있다.",
+     "hint": "have been -ing",
+     "bone": "",
+     "answer": "I have been waiting for you for two hours.",
+     "explain": "지금도 계속되는 동작 강조 → have been -ing."
+    },
+    {
+     "id": "h4",
+     "tag": "과거 vs 현재완료",
+     "level": "warn",
+     "ko": "나는 어제 그 영화를 봤다.",
+     "hint": "yesterday",
+     "bone": "",
+     "answer": "I watched the movie yesterday.",
+     "explain": "yesterday, last week, ago 같은 과거 시점이 있으면 현재완료 불가. I have watched ~ yesterday (X)."
+    },
+    {
+     "id": "h5",
+     "tag": "경험",
+     "level": "",
+     "ko": "나는 일본에 세 번 가 본 적이 있다.",
+     "hint": "have been to",
+     "bone": "",
+     "answer": "I have been to Japan three times.",
+     "explain": "'가 본 적 있다' = have <b>been</b> to. have gone to는 '가버리고 없다'."
+    },
+    {
+     "id": "h6",
+     "tag": "과거완료",
+     "level": "",
+     "ko": "내가 역에 도착했을 때 기차는 이미 떠났었다.",
+     "hint": "had already left",
+     "bone": "",
+     "answer": "When I arrived at the station, the train had already left.",
+     "explain": "과거보다 더 이전 → had + p.p."
+    }
+   ]
+  },
+  {
+   "id": "w3state",
+   "week": 3,
+   "title": "3주 · 상태동사 vs 동작",
+   "questions": [
+    {
+     "id": "k1",
+     "tag": "know",
+     "level": "warn",
+     "ko": "나는 그를 10년 동안 알고 지냈다.",
+     "hint": "know",
+     "bone": "",
+     "answer": "I have known him for ten years.",
+     "explain": "know는 상태동사 → 진행형 불가. have been knowing (X)."
+    },
+    {
+     "id": "k2",
+     "tag": "have 소유 vs 동작",
+     "level": "",
+     "ko": "나는 차가 두 대 있다. / 나는 지금 점심을 먹고 있다.",
+     "hint": "have",
+     "bone": "",
+     "answer": "I have two cars. / I'm having lunch now.",
+     "explain": "소유의 have는 진행형 X, '먹다'의 have는 진행형 O."
+    },
+    {
+     "id": "k3",
+     "tag": "think 의견 vs 생각중",
+     "level": "",
+     "ko": "나는 그게 좋은 생각이라고 생각해. / 나는 이직을 고민 중이야.",
+     "hint": "think",
+     "bone": "",
+     "answer": "I think it's a good idea. / I'm thinking about changing jobs.",
+     "explain": "의견 think는 단순형, '고민 중'은 진행형 + about."
+    },
+    {
+     "id": "k4",
+     "tag": "belong to",
+     "level": "",
+     "ko": "이 가방은 내 동생 거야.",
+     "hint": "belong to",
+     "bone": "",
+     "answer": "This bag belongs to my brother.",
+     "explain": "belong to는 상태동사 → is belonging (X). (sister도 OK)"
+    },
+    {
+     "id": "k5",
+     "tag": "look 감각동사",
+     "level": "",
+     "ko": "너 오늘 피곤해 보여.",
+     "hint": "look",
+     "bone": "",
+     "answer": "You look tired today.",
+     "explain": "look + 형용사(2형식). 동작 '보다'는 look at."
+    },
+    {
+     "id": "k6",
+     "tag": "taste 상태 vs 동작",
+     "level": "warn",
+     "ko": "이 수프 맛있다. / 그는 수프를 맛보고 있다.",
+     "hint": "taste",
+     "bone": "",
+     "answer": "This soup tastes good. / He is tasting the soup.",
+     "explain": "맛이 나다(상태, 2형식) vs 맛보다(동작, 3형식)."
+    }
+   ]
+  },
+  {
+   "id": "w4ger",
+   "week": 4,
+   "title": "4주 · 동명사 · to부정사",
+   "questions": [
+    {
+     "id": "m1",
+     "tag": "동명사 주어",
+     "level": "warn",
+     "ko": "포기하는 것은 선택지가 아니다.",
+     "hint": "포기하다(give up)",
+     "bone": "",
+     "answer": "Giving up is not an option.",
+     "explain": "동명사 주어는 <b>단수</b> 취급 → is."
+    },
+    {
+     "id": "m2",
+     "tag": "동명사 주어",
+     "level": "",
+     "ko": "매일 영어를 공부하는 것은 쉽지 않다.",
+     "hint": "Studying ~",
+     "bone": "",
+     "answer": "Studying English every day is not easy.",
+     "explain": "It is not easy to study English every day 도 OK(가주어 it)."
+    },
+    {
+     "id": "m3",
+     "tag": "enjoy -ing",
+     "level": "",
+     "ko": "나는 주말에 요리하는 것을 즐긴다.",
+     "hint": "enjoy",
+     "bone": "",
+     "answer": "I enjoy cooking on weekends.",
+     "explain": "enjoy, finish, mind, avoid, give up + <b>-ing</b>. enjoy to cook (X)."
+    },
+    {
+     "id": "m4",
+     "tag": "decide to",
+     "level": "",
+     "ko": "그녀는 이직하기로 결심했다.",
+     "hint": "decide / 이직하다(change jobs)",
+     "bone": "",
+     "answer": "She decided to change jobs.",
+     "explain": "decide, want, plan, hope, promise + <b>to V</b>."
+    },
+    {
+     "id": "m5",
+     "tag": "stop -ing vs to V",
+     "level": "warn",
+     "ko": "그는 담배를 끊었다. / 그는 담배를 피우려고 멈춰 섰다.",
+     "hint": "stop",
+     "bone": "",
+     "answer": "He stopped smoking. / He stopped to smoke.",
+     "explain": "stop -ing = 그만두다 / stop to V = ~하려고 멈추다."
+    },
+    {
+     "id": "m6",
+     "tag": "look forward to -ing",
+     "level": "err",
+     "ko": "너를 곧 만나기를 고대하고 있어.",
+     "hint": "look forward to",
+     "bone": "",
+     "answer": "I'm looking forward to seeing you soon.",
+     "explain": "여기 to는 전치사 → 뒤에 <b>-ing</b>. to see (X)."
+    }
+   ]
+  },
+  {
+   "id": "w4because",
+   "week": 4,
+   "title": "4주 · because vs because of",
+   "questions": [
+    {
+     "id": "n1",
+     "tag": "because + 절",
+     "level": "",
+     "ko": "비가 와서 우리는 집에 있었다.",
+     "hint": "because",
+     "bone": "",
+     "answer": "We stayed home because it rained.",
+     "explain": "because + 주어 + 동사."
+    },
+    {
+     "id": "n2",
+     "tag": "because of + 명사",
+     "level": "warn",
+     "ko": "비 때문에 우리는 집에 있었다.",
+     "hint": "because of",
+     "bone": "",
+     "answer": "We stayed home because of the rain.",
+     "explain": "because of + 명사(구). because of it rained (X)."
+    },
+    {
+     "id": "n3",
+     "tag": "전환",
+     "level": "",
+     "ko": "교통 체증 때문에 늦었어요. (because of로)",
+     "hint": "교통(traffic)",
+     "bone": "",
+     "answer": "I was late because of the traffic.",
+     "explain": "because the traffic was heavy (절) ↔ because of the heavy traffic (명사구)."
+    },
+    {
+     "id": "n4",
+     "tag": "although",
+     "level": "",
+     "ko": "피곤했지만 나는 운동하러 갔다.",
+     "hint": "although",
+     "bone": "",
+     "answer": "Although I was tired, I went to the gym.",
+     "explain": "although/though + 절."
+    },
+    {
+     "id": "n5",
+     "tag": "despite",
+     "level": "warn",
+     "ko": "피곤함에도 불구하고 나는 운동하러 갔다.",
+     "hint": "despite",
+     "bone": "",
+     "answer": "Despite being tired, I went to the gym.",
+     "explain": "despite + 명사/동명사. despite <b>of</b> (X). (In spite of도 OK)"
+    },
+    {
+     "id": "n6",
+     "tag": "so ~ that",
+     "level": "",
+     "ko": "그 영화는 너무 지루해서 나는 잠들었다.",
+     "hint": "so ~ that / 지루한(boring)",
+     "bone": "",
+     "answer": "The movie was so boring that I fell asleep.",
+     "explain": "boring(지루하게 하는) vs bored(지루해진 사람)."
+    }
+   ]
+  },
+  {
+   "id": "w4review",
+   "week": 4,
+   "title": "4주 · 오답 Top6 종합 복습",
+   "questions": [
+    {
+     "id": "r1",
+     "tag": "가목적어 it",
+     "level": "err",
+     "ko": "스마트폰은 우리가 서로 연락하는 것을 더 쉽게 만들었다.",
+     "hint": "연락하다(stay in touch)",
+     "bone": "",
+     "answer": "Smartphones have made it easier for us to stay in touch.",
+     "explain": "made it easier for us to ~. (made it easier for us to contact each other 도 OK)"
+    },
+    {
+     "id": "r2",
+     "tag": "감각동사+형용사",
+     "level": "err",
+     "ko": "네 목소리가 오늘 좀 이상하게 들려.",
+     "hint": "sound",
+     "bone": "",
+     "answer": "Your voice sounds a little strange today.",
+     "explain": "sounds strangely (X)."
+    },
+    {
+     "id": "r3",
+     "tag": "suggest",
+     "level": "err",
+     "ko": "그는 나에게 새로운 방법을 제안했다.",
+     "hint": "suggest",
+     "bone": "",
+     "answer": "He suggested a new way to me.",
+     "explain": "suggested me (X). (He suggested a new method to me 도 OK)"
+    },
+    {
+     "id": "r4",
+     "tag": "to V vs 원형",
+     "level": "err",
+     "ko": "상사는 나에게 보고서를 다시 쓰라고 했다. (ask 사용)",
+     "hint": "ask",
+     "bone": "",
+     "answer": "My boss asked me to rewrite the report.",
+     "explain": "ask + 목적어 + <b>to V</b>. (made me rewrite = 사역 원형)"
+    },
+    {
+     "id": "r5",
+     "tag": "단복수 news",
+     "level": "err",
+     "ko": "그 뉴스는 사실이 아니었다.",
+     "hint": "news",
+     "bone": "",
+     "answer": "The news was not true.",
+     "explain": "news는 <b>단수</b> → was. The news were (X)."
+    },
+    {
+     "id": "r6",
+     "tag": "시제 일치",
+     "level": "err",
+     "ko": "나는 어제 퇴근한 후에 친구를 만났다.",
+     "hint": "퇴근하다(leave work)",
+     "bone": "",
+     "answer": "I met my friend after I left work yesterday.",
+     "explain": "과거 → after I <b>left</b>. after I have left (X)."
+    }
+   ]
+  },
+  {
+   "id": "pop1",
+   "title": "🎵 팝송 · Bruno Mars",
+   "questions": [
+    {
+     "id": "p1",
+     "tag": "Just the Way You Are · 2형식",
+     "level": "",
+     "ko": "너는 오늘 밤 정말 멋져(놀라워) 보인다.",
+     "hint": "보이다(look) / 놀라운·멋진(amazing) / 오늘 밤(tonight)",
+     "bone": "",
+     "answer": "You look amazing tonight.",
+     "explain": "2형식 감각동사(look) + 형용사 보어(amazing)! 부사(amazingly)를 쓰지 않습니다."
+    },
+    {
+     "id": "p2",
+     "tag": "When I Was Your Man · 4형식",
+     "level": "",
+     "ko": "내가 너에게 꽃을 사줄게.",
+     "hint": "I will buy 활용 / 꽃들(flowers)",
+     "bone": "",
+     "answer": "I will buy you flowers.",
+     "explain": "4형식 동사 buy + [누구에게(you)] + [무엇을(flowers)] 어순입니다."
+    },
+    {
+     "id": "p3",
+     "tag": "That's What I Like · 5형식 사역",
+     "level": "",
+     "ko": "네 목소리는 나를 미소 짓게 만든다.",
+     "hint": "네 목소리(Your voice - 단수!) / 미소 짓다(smile)",
+     "bone": "",
+     "answer": "Your voice makes me smile.",
+     "explain": "사역동사 make + 목적어(me) + 동사원형(smile)! 주어가 3인칭 단수이므로 <b>makes</b>를 씁니다."
+    }
+   ],
+   "week": 0
+  }
+ ],
+ "cheatsheet": [
+  {
+   "title": "1형식 (누가 + 간다/일어난다)",
+   "body": "An accident <b>happened</b> last night. (수동태 불가!)"
+  },
+  {
+   "title": "2형식 (누가 + 이다/보인다 + [형용사 상태])",
+   "body": "The soup <b>smells [wonderful]</b>. / The plan <b>looks [perfect]</b>."
+  },
+  {
+   "title": "3형식 (누가 + ~한다 + [무엇을])",
+   "body": "She <b>explained [nothing]</b> (to me). / We <b>discussed [the plan]</b>."
+  },
+  {
+   "title": "4형식 (누가 + 준다 + [누구에게] + [무엇을])",
+   "body": "He <b>sent [me] [a message]</b>. (사람 먼저, 사물 나중!)"
+  },
+  {
+   "title": "5형식 (누가 + 만든다 + [대상을] + [상태/행동으로])",
+   "body": "• 상태: It <b>keeps [me] [warm]</b>.<br>• 일반 행동: He <b>allowed [me] [to leave]</b>.<br>• 사역 행동: He <b>made [me] [recheck]</b>.<br>• 가목적어: It <b>makes [it] [easier]</b> for us <b>[to stay]</b> healthy."
+  }
+ ],
+ "mistakes": [
+  {
+   "title": "5형식 가목적어 it",
+   "wrong": "makes us easy to keep",
+   "right": "makes it easier for us to stay"
+  },
+  {
+   "title": "2형식 감각동사 + 형용사",
+   "wrong": "smells wonderfully",
+   "right": "smells wonderful"
+  },
+  {
+   "title": "4형식 어순 & 3형식 explain/suggest",
+   "wrong": "suggested me an idea",
+   "right": "suggested an idea to me"
+  },
+  {
+   "title": "5형식 일반(to V) vs 사역(원형)",
+   "wrong": "allowed me leave",
+   "right": "allowed me to leave"
+  },
+  {
+   "title": "단복수(shirt/news) & 부사(online)",
+   "wrong": "shirts... on online is... to me",
+   "right": "shirt... online is... for me"
+  },
+  {
+   "title": "과거 시간 부사절 시제 일치",
+   "wrong": "before I have slept",
+   "right": "before I went to bed"
+  }
+ ],
+ "roadmap": [
+  {
+   "id": "w1",
+   "title": "1주 차: 문장 뼈대 바로잡기",
+   "desc": "1~5형식 어순, explain/suggest, 가목적어 it, shirt/news"
+  },
+  {
+   "id": "w2",
+   "title": "2주 차: 전치사 감각과 부사의 독립",
+   "desc": "전치사 금지 부사(online, home), to vs for, 자·타동사"
+  },
+  {
+   "id": "w3",
+   "title": "3주 차: 시제 디테일과 원어민 패턴",
+   "desc": "시간/조건 부사절 시제 일치, 완료진행형, 상태 vs 동작"
+  },
+  {
+   "id": "w4",
+   "title": "4주 차: 준동사와 복합문 고급 영작",
+   "desc": "동명사 주어(Giving up~), because vs because of 전환"
+  }
+ ]
 }

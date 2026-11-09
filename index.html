@@ -90,6 +90,7 @@
 
 <div class="container">
   <div class="section active" id="sec-train">
+    <div class="chips" id="weekChips"></div>
     <div class="chips" id="setChips"></div>
     <div class="progress" id="progress"></div>
     <div id="questions"></div>
@@ -134,9 +135,10 @@
 </nav>
 
 <script>
-const APP_VERSION = '1.0.0';
+const APP_VERSION = '1.1.0';
 const KEY = 'coach_v1';
 let content = { sets: [], cheatsheet: [], mistakes: [], roadmap: [] };
+const WEEKS = [['all', '전체'], [1, '1주'], [2, '2주'], [3, '3주'], [4, '4주'], [0, '보너스'], ['mine', '내 세트']];
 let st = load();
 
 function load() {
@@ -159,9 +161,12 @@ async function copyText(text, msg) {
 
 /* ---------- 훈련 ---------- */
 function renderTrain() {
-  const sets = allSets(), cur = currentSet();
+  const wk = st.week ?? 'all';
+  $('weekChips').innerHTML = WEEKS.map(([v, l]) => `<button class="chip ${String(v) === String(wk) ? 'active' : ''}" data-week="${v}">${l}</button>`).join('');
+  const sets = allSets().filter(s => wk === 'all' || (wk === 'mine' ? !('week' in s) : s.week === wk));
+  let cur = currentSet(); if (!sets.includes(cur)) { cur = sets[0]; if (cur) st.currentSet = cur.id; }
   $('setChips').innerHTML = sets.map(s => `<button class="chip ${s === cur ? 'active' : ''}" data-set="${esc(s.id)}">${esc(s.title)}</button>`).join('');
-  if (!cur) { $('questions').innerHTML = '<div class="card empty">문제가 없어요. [관리] 탭에서 추가해 주세요.</div>'; return; }
+  if (!cur) { $('questions').innerHTML = '<div class="card empty">문제가 없어요. [관리] 탭에서 추가해 주세요.</div>'; $('progress').textContent = ''; return; }
   $('questions').innerHTML = cur.questions.map((q, i) => {
     const k = qkey(cur, q), r = st.results[k];
     return `<div class="card" data-k="${esc(k)}">
@@ -170,7 +175,7 @@ function renderTrain() {
       <div class="q-title">"${esc(q.ko)}"</div>
       ${q.hint ? `<div class="q-hint">힌트: ${esc(q.hint)}</div>` : ''}
       ${q.bone ? `<div class="bone">💡 <b>뼈대 공식:</b> ${esc(q.bone)}</div>` : ''}
-      <input type="text" data-input="${esc(k)}" value="${esc(st.answers[k] || '')}" placeholder="영어로 직접 입력해 보세요" autocapitalize="sentences" autocomplete="off" spellcheck="false">
+      <input type="text" data-input="${esc(k)}" value="${esc(st.answers[k] || '')}" placeholder="${esc(q.placeholder || '영어로 직접 입력해 보세요')}" autocapitalize="sentences" autocomplete="off" spellcheck="false">
       <div class="row"><button class="btn" data-toggle="${esc(k)}">모범 답안 & 해설</button></div>
       <div class="feedback" id="fb-${esc(k)}">
         <div class="ans">✅ ${esc(q.answer)}</div>
@@ -186,6 +191,7 @@ function renderProgress() {
   const done = keys.filter(k => st.results[k]).length, ok = keys.filter(k => st.results[k] === 'ok').length;
   $('progress').textContent = `${n}문제 중 ${done}개 채점 · 맞음 ${ok}개`;
 }
+$('weekChips').addEventListener('click', e => { const b = e.target.closest('[data-week]'); if (!b) return; const v = b.dataset.week; st.week = /^\d$/.test(v) ? +v : v; const first = allSets().find(s => st.week === 'all' || (st.week === 'mine' ? !('week' in s) : s.week === st.week)); if (first) st.currentSet = first.id; save(); renderTrain(); });
 $('setChips').addEventListener('click', e => { const b = e.target.closest('[data-set]'); if (!b) return; st.currentSet = b.dataset.set; save(); renderTrain(); window.scrollTo(0, 0); });
 $('questions').addEventListener('input', e => { const k = e.target.dataset.input; if (k) { st.answers[k] = e.target.value; save(); } });
 $('questions').addEventListener('click', e => {
@@ -282,7 +288,7 @@ function importSet() {
     const list = parsed && Array.isArray(parsed.sets) ? parsed.sets : [parsed];
     const added = list.map(normalizeSet);
     added.forEach((s, i) => { s.id += i; st.extraSets.push(s); });
-    st.currentSet = added[0].id; save();
+    st.currentSet = added[0].id; st.week = 'mine'; save();
     $('importBox').value = ''; renderAll(); showTab('sec-train');
     toast(`${added.reduce((n, s) => n + s.questions.length, 0)}문제를 추가했어요!`);
   } catch (e) { toast('추가 실패: ' + e.message); }
