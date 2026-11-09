@@ -354,10 +354,16 @@ const aiKey = () => ls(AI_KEY);
 const aiModel = () => ls(AI_MODEL) || 'gemini-flash-latest';
 function saveAi() { ls(AI_KEY, $('aiKey').value.trim()); ls(AI_MODEL, $('aiModel').value.trim()); renderTrain(); $('aiStatus').textContent = aiKey() ? '저장했어요. [연결 테스트]로 확인해 보세요.' : 'AI 채점을 껐어요.'; }
 async function callGemini(prompt) {
-  const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(aiModel())}:generateContent`, {
-    method: 'POST', headers: { 'Content-Type': 'application/json', 'x-goog-api-key': aiKey() },
-    body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }], generationConfig: { responseMimeType: 'application/json', temperature: 0.2 } })
-  });
+  if (location.protocol !== 'https:') throw new Error('앱을 https://silverbelllove.github.io/english-coach/ 주소로 열어야 AI 채점이 돼요 (지금: ' + location.protocol + ')');
+  const key = aiKey().replace(/[^\x21-\x7E]/g, '');
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(aiModel())}:generateContent`;
+  const body = JSON.stringify({ contents: [{ parts: [{ text: prompt }] }], generationConfig: { responseMimeType: 'application/json', temperature: 0.2 } });
+  let res;
+  try { res = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-goog-api-key': key }, body }); }
+  catch (e) {
+    try { res = await fetch(url + '?key=' + encodeURIComponent(key), { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body }); }
+    catch (e2) { throw new Error(`네트워크 요청이 막혔어요 (${e2.message}). 주소: ${location.host || '파일'} · 인터넷 연결, 사파리 콘텐츠 차단기를 확인해 주세요.`); }
+  }
   const data = await res.json().catch(() => ({}));
   if (!res.ok) throw new Error((data.error && data.error.message) || ('HTTP ' + res.status));
   const text = data.candidates?.[0]?.content?.parts?.map(p => p.text).join('') || '';
