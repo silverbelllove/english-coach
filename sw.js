@@ -1,5 +1,5 @@
 // 앱 파일을 바꾸면 이 버전을 올려 주세요. (content.json은 항상 최신본을 먼저 시도합니다)
-const CACHE = 'coach-v5';
+const CACHE = 'coach-v6';
 const SHELL = ['./', 'index.html', 'content.json', 'manifest.webmanifest', 'icon-180.png', 'icon-192.png', 'icon-512.png'];
 
 self.addEventListener('install', e => {

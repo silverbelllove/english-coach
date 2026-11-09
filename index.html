@@ -67,6 +67,12 @@
   .ai-box { margin-top: 10px; padding: 12px; border-radius: 12px; border: 1.5px solid #7DD3FC; font-size: .88rem; line-height: 1.55; }
   .ai-box .v { font-weight: 800; margin-bottom: 4px; }
   .ai-box .fix { font-weight: 700; color: var(--primary); margin: 4px 0; }
+  .note { margin-top: 12px; padding-top: 10px; border-top: 1px dashed var(--line); }
+  .note-chk { display: flex; align-items: center; gap: 8px; font-size: .84rem; font-weight: 600; color: var(--subtext); }
+  .note-chk input { width: 18px; height: 18px; accent-color: #F59E0B; }
+  .note.on .note-chk { color: var(--warn); }
+  .note-txt { display: none; min-height: 70px; margin: 8px 0 0; font-family: inherit; font-size: 15px; }
+  .note.on .note-txt { display: block; background: var(--warn-bg); border-color: #F59E0B; }
   .feedback .ans { font-weight: 700; color: var(--primary); font-size: .96rem; margin-bottom: 6px; }
   .grade { margin-top: 10px; }
   .result { font-size: .78rem; font-weight: 700; float: right; }
@@ -159,7 +165,7 @@
 </nav>
 
 <script>
-const APP_VERSION = '2.1.0';
+const APP_VERSION = '2.2.0';
 const KEY = 'coach_v1';
 let content = { sets: [], cheatsheet: [], mistakes: [], roadmap: [] };
 const WEEKS = [['all', '전체'], [1, '1주'], [2, '2주'], [3, '3주'], [4, '4주'], [0, '추가 연습'], ['mine', '내 세트']];
@@ -186,6 +192,11 @@ async function copyText(text, msg) {
 /* ---------- 훈련 ---------- */
 const mark = t => String(t ?? '').replace(/\[\[(.+?)\]\]/g, '<mark>$1</mark>');
 function gradeBtns(k) { return `<div class="row grade"><button class="btn ok" data-grade="ok" data-k="${esc(k)}">⭕ 맞았어</button><button class="btn ng" data-grade="ng" data-k="${esc(k)}">❌ 틀렸어</button></div>`; }
+function noteBlock(k) {
+  const on = !!(st.flags && st.flags[k]);
+  return `<div class="note ${on ? 'on' : ''}"><label class="note-chk"><input type="checkbox" data-flag="${esc(k)}" ${on ? 'checked' : ''}> 🤔 이 문제 특히 잘 모르겠어요</label>
+    <textarea class="note-txt" data-note="${esc(k)}" ${on ? '' : 'disabled'} placeholder="${on ? '어디가 헷갈렸는지, 궁금한 점을 적어 주세요' : '체크하면 메모를 쓸 수 있어요'}">${esc((st.notes && st.notes[k]) || '')}</textarea></div>`;
+}
 function renderQ(cur, q, i) {
   const k = qkey(cur, q), r = st.results[k], type = q.type || 'write';
   const head = `${r ? `<span class="result ${r}">${r === 'ok' ? '⭕ 맞음' : '❌ 틀림'}</span>` : ''}
@@ -198,7 +209,7 @@ function renderQ(cur, q, i) {
     const picked = st.answers[k];
     return `<div class="card" data-k="${esc(k)}">${head}
       <div class="opts">${q.options.map(o => `<button class="opt ${picked === o ? (o === q.answer ? 'right' : 'wrong') : ''} ${picked && o === q.answer ? 'right' : ''}" data-pick="${esc(o)}" data-k="${esc(k)}">${esc(o)}</button>`).join('')}</div>
-      <div class="feedback ${picked ? 'show' : ''}" id="fb-${esc(k)}"><div class="ans">✅ ${esc(q.answer)}</div><div>${q.explain || ''}</div></div></div>`;
+      <div class="feedback ${picked ? 'show' : ''}" id="fb-${esc(k)}"><div class="ans">✅ ${esc(q.answer)}</div><div>${q.explain || ''}</div></div>${noteBlock(k)}</div>`;
   }
   const slots = type === 'build' ? `<div class="slots">${q.slots.map((sl, j) => `<label class="slot"><span class="slot-l">${esc(sl.label)}</span><input type="text" data-input="${esc(k)}#${j}" value="${esc(st.answers[k + '#' + j] || '')}" placeholder="${esc(sl.hint || '')}" autocomplete="off" autocapitalize="off" spellcheck="false"></label>`).join('')}</div><div class="q-hint" style="margin-top:4px">👇 칸을 합쳐서 완성 문장</div>` : '';
   const slotAns = type === 'build' ? `<div class="slot-ans">${q.slots.map(sl => `<div><span class="slot-l">${esc(sl.label)}</span> ${esc(sl.answer)}</div>`).join('')}</div>` : '';
@@ -209,7 +220,7 @@ function renderQ(cur, q, i) {
       <div class="feedback" id="fb-${esc(k)}">${slotAns}
         <div class="ans">✅ ${esc(q.answer)}</div>
         <div>${q.explain || ''}</div>${gradeBtns(k)}
-      </div></div>`;
+      </div>${noteBlock(k)}</div>`;
 }
 
 function renderTrain() {
@@ -230,7 +241,18 @@ function renderProgress() {
 }
 $('weekChips').addEventListener('click', e => { const b = e.target.closest('[data-week]'); if (!b) return; const v = b.dataset.week; st.week = /^\d$/.test(v) ? +v : v; const first = allSets().find(s => st.week === 'all' || (st.week === 'mine' ? !('week' in s) : s.week === st.week)); if (first) st.currentSet = first.id; save(); renderTrain(); });
 $('setChips').addEventListener('click', e => { const b = e.target.closest('[data-set]'); if (!b) return; st.currentSet = b.dataset.set; save(); renderTrain(); window.scrollTo(0, 0); });
-$('questions').addEventListener('input', e => { const k = e.target.dataset.input; if (k) { st.answers[k] = e.target.value; save(); } });
+$('questions').addEventListener('input', e => {
+  const k = e.target.dataset.input; if (k) { st.answers[k] = e.target.value; save(); return; }
+  const n = e.target.dataset.note; if (n) { st.notes = st.notes || {}; st.notes[n] = e.target.value; save(); }
+});
+$('questions').addEventListener('change', e => {
+  const k = e.target.dataset.flag; if (!k) return;
+  st.flags = st.flags || {}; if (e.target.checked) st.flags[k] = true; else delete st.flags[k]; save();
+  const box = e.target.closest('.note'), ta = box.querySelector('textarea');
+  box.classList.toggle('on', e.target.checked); ta.disabled = !e.target.checked;
+  ta.placeholder = e.target.checked ? '어디가 헷갈렸는지, 궁금한 점을 적어 주세요' : '체크하면 메모를 쓸 수 있어요';
+  if (e.target.checked) ta.focus();
+});
 $('questions').addEventListener('click', e => {
   const t = e.target.closest('[data-toggle]');
   if (t) { $('fb-' + t.dataset.toggle).classList.toggle('show'); return; }
@@ -256,7 +278,7 @@ $('questions').addEventListener('click', e => {
 });
 function resetSet() {
   const cur = currentSet(); if (!cur || !confirm('이 세트의 답안과 채점 기록을 지울까요? (오답노트에서도 빠져요)')) return;
-  cur.questions.forEach(q => { const k = qkey(cur, q); delete st.answers[k]; delete st.results[k]; if (st.ai) delete st.ai[k]; (q.slots || []).forEach((_, j) => delete st.answers[k + '#' + j]); });
+  cur.questions.forEach(q => { const k = qkey(cur, q); delete st.answers[k]; delete st.results[k]; if (st.flags) delete st.flags[k]; if (st.notes) delete st.notes[k]; if (st.ai) delete st.ai[k]; (q.slots || []).forEach((_, j) => delete st.answers[k + '#' + j]); });
   save(); renderTrain(); renderWrong();
 }
 function copyAnswers() {
@@ -265,10 +287,11 @@ function copyAnswers() {
   cur.questions.forEach((q, i) => {
     const a = (st.answers[qkey(cur, q)] || '').trim();
     const sl = (q.slots || []).map((x, j) => `${x.label}: ${(st.answers[qkey(cur, q) + '#' + j] || '').trim()}`).filter(t => !/: $/.test(t));
-    if (a || sl.length) { any = true; text += `\nQ${i + 1}. ${q.ko}${q.sentence ? '\n문장: ' + q.sentence.replace(/\[\[|\]\]/g, '') : ''}${sl.length ? '\n' + sl.join(' / ') : ''}\n내 답: ${a}\n`; }
+    const k = qkey(cur, q), flag = st.flags && st.flags[k], note = ((st.notes && st.notes[k]) || '').trim();
+    if (a || sl.length || flag) { any = true; text += `\nQ${i + 1}. ${q.ko.replace(/<[^>]+>/g, '').replace(/\[\[|\]\]/g, '')}${q.sentence ? '\n문장: ' + q.sentence.replace(/\[\[|\]\]/g, '') : ''}${sl.length ? '\n' + sl.join(' / ') : ''}\n내 답: ${a || '(없음)'}\n${flag ? '⚠️ 이 문제 특히 잘 모름' + (note ? ': ' + note : '') + '\n' : ''}`; }
   });
   if (!any) text += '(아직 입력된 답안이 없습니다)';
-  else text += '\n위 답안을 채점하고, 틀린 부분은 이유와 함께 고쳐줘.';
+  else text += '\n위 답안을 채점하고, 틀린 부분은 이유와 함께 고쳐줘. ⚠️ 표시한 문제는 특히 잘 모르는 부분이니 품사·문장성분 관점에서 더 자세히 설명해줘.';
   copyText(text, '답안이 복사됐어요! AI 채팅창에 붙여넣어 주세요.');
 }
 
