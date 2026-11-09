@@ -67,6 +67,17 @@
   .result { font-size: .78rem; font-weight: 700; float: right; }
   .result.ok { color: var(--ok); } .result.ng { color: var(--err); }
 
+  mark { background: #FDE68A; color: #1E293B; padding: 0 3px; border-radius: 4px; font-weight: 700; }
+  .sentence { font-size: 1rem; background: var(--soft); padding: 10px 12px; border-radius: 10px; margin-bottom: 10px; line-height: 1.6; }
+  .opts { display: flex; flex-wrap: wrap; gap: 8px; }
+  .opt { flex: 1 1 calc(50% - 8px); padding: 12px 8px; border-radius: 10px; border: 1.5px solid var(--line); background: var(--card); color: var(--text); font-size: .9rem; font-weight: 600; }
+  .opt.right { background: var(--ok-bg); color: var(--ok); border-color: var(--ok); }
+  .opt.wrong { background: var(--err-bg); color: var(--err); border-color: var(--err); }
+  .slots { display: flex; flex-direction: column; gap: 6px; margin-bottom: 6px; }
+  .slot { display: flex; align-items: center; gap: 8px; }
+  .slot input[type=text] { margin-bottom: 0; padding: 9px 12px; }
+  .slot-l { flex: none; width: 108px; display: inline-block; font-size: .74rem; font-weight: 700; color: var(--primary); background: var(--primary-light); padding: 4px 8px; border-radius: 8px; text-align: center; }
+  .slot-ans { display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px; font-size: .88rem; }
   .list-row { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: .9rem; line-height: 1.5; }
   .list-row:last-child { border-bottom: none; }
   .list-row .sub { font-size: .83rem; color: var(--subtext); }
@@ -84,7 +95,7 @@
 <div class="toast" id="toast"></div>
 
 <header>
-  <div><h1>영어 뼈대 코치</h1><p id="subtitle">1~5형식 · 10분 실전 훈련</p></div>
+  <div><h1>영어 뼈대 코치</h1><p id="subtitle">품사·성분부터 세우는 영작 훈련</p></div>
   <button class="hbtn" onclick="copyAnswers()">📋 답안 복사</button>
 </header>
 
@@ -135,10 +146,10 @@
 </nav>
 
 <script>
-const APP_VERSION = '1.1.0';
+const APP_VERSION = '2.0.0';
 const KEY = 'coach_v1';
 let content = { sets: [], cheatsheet: [], mistakes: [], roadmap: [] };
-const WEEKS = [['all', '전체'], [1, '1주'], [2, '2주'], [3, '3주'], [4, '4주'], [0, '보너스'], ['mine', '내 세트']];
+const WEEKS = [['all', '전체'], [1, '1주'], [2, '2주'], [3, '3주'], [4, '4주'], [0, '추가 연습'], ['mine', '내 세트']];
 let st = load();
 
 function load() {
@@ -160,6 +171,33 @@ async function copyText(text, msg) {
 }
 
 /* ---------- 훈련 ---------- */
+const mark = t => String(t ?? '').replace(/\[\[(.+?)\]\]/g, '<mark>$1</mark>');
+function gradeBtns(k) { return `<div class="row grade"><button class="btn ok" data-grade="ok" data-k="${esc(k)}">⭕ 맞았어</button><button class="btn ng" data-grade="ng" data-k="${esc(k)}">❌ 틀렸어</button></div>`; }
+function renderQ(cur, q, i) {
+  const k = qkey(cur, q), r = st.results[k], type = q.type || 'write';
+  const head = `${r ? `<span class="result ${r}">${r === 'ok' ? '⭕ 맞음' : '❌ 틀림'}</span>` : ''}
+      <span class="badge ${esc(q.level || '')}">Q${i + 1}${q.tag ? ' · ' + esc(q.tag) : ''}</span>
+      <div class="q-title">${type === 'write' || type === 'build' ? '"' + esc(q.ko) + '"' : mark(q.ko)}</div>
+      ${q.sentence ? `<div class="sentence">${mark(q.sentence)}</div>` : ''}
+      ${q.hint ? `<div class="q-hint">힌트: ${esc(q.hint)}</div>` : ''}
+      ${q.bone ? `<div class="bone">💡 <b>뼈대 공식:</b> ${esc(q.bone)}</div>` : ''}`;
+  if (type === 'choice') {
+    const picked = st.answers[k];
+    return `<div class="card" data-k="${esc(k)}">${head}
+      <div class="opts">${q.options.map(o => `<button class="opt ${picked === o ? (o === q.answer ? 'right' : 'wrong') : ''} ${picked && o === q.answer ? 'right' : ''}" data-pick="${esc(o)}" data-k="${esc(k)}">${esc(o)}</button>`).join('')}</div>
+      <div class="feedback ${picked ? 'show' : ''}" id="fb-${esc(k)}"><div class="ans">✅ ${esc(q.answer)}</div><div>${q.explain || ''}</div></div></div>`;
+  }
+  const slots = type === 'build' ? `<div class="slots">${q.slots.map((sl, j) => `<label class="slot"><span class="slot-l">${esc(sl.label)}</span><input type="text" data-input="${esc(k)}#${j}" value="${esc(st.answers[k + '#' + j] || '')}" placeholder="${esc(sl.hint || '')}" autocomplete="off" autocapitalize="off" spellcheck="false"></label>`).join('')}</div><div class="q-hint" style="margin-top:4px">👇 칸을 합쳐서 완성 문장</div>` : '';
+  const slotAns = type === 'build' ? `<div class="slot-ans">${q.slots.map(sl => `<div><span class="slot-l">${esc(sl.label)}</span> ${esc(sl.answer)}</div>`).join('')}</div>` : '';
+  return `<div class="card" data-k="${esc(k)}">${head}${slots}
+      <input type="text" data-input="${esc(k)}" value="${esc(st.answers[k] || '')}" placeholder="${esc(q.placeholder || '영어로 직접 입력해 보세요')}" autocapitalize="sentences" autocomplete="off" spellcheck="false">
+      <div class="row"><button class="btn" data-toggle="${esc(k)}">모범 답안 & 해설</button></div>
+      <div class="feedback" id="fb-${esc(k)}">${slotAns}
+        <div class="ans">✅ ${esc(q.answer)}</div>
+        <div>${q.explain || ''}</div>${gradeBtns(k)}
+      </div></div>`;
+}
+
 function renderTrain() {
   const wk = st.week ?? 'all';
   $('weekChips').innerHTML = WEEKS.map(([v, l]) => `<button class="chip ${String(v) === String(wk) ? 'active' : ''}" data-week="${v}">${l}</button>`).join('');
@@ -167,22 +205,7 @@ function renderTrain() {
   let cur = currentSet(); if (!sets.includes(cur)) { cur = sets[0]; if (cur) st.currentSet = cur.id; }
   $('setChips').innerHTML = sets.map(s => `<button class="chip ${s === cur ? 'active' : ''}" data-set="${esc(s.id)}">${esc(s.title)}</button>`).join('');
   if (!cur) { $('questions').innerHTML = '<div class="card empty">문제가 없어요. [관리] 탭에서 추가해 주세요.</div>'; $('progress').textContent = ''; return; }
-  $('questions').innerHTML = cur.questions.map((q, i) => {
-    const k = qkey(cur, q), r = st.results[k];
-    return `<div class="card" data-k="${esc(k)}">
-      ${r ? `<span class="result ${r}">${r === 'ok' ? '⭕ 맞음' : '❌ 틀림'}</span>` : ''}
-      <span class="badge ${esc(q.level || '')}">Q${i + 1}${q.tag ? ' · ' + esc(q.tag) : ''}</span>
-      <div class="q-title">"${esc(q.ko)}"</div>
-      ${q.hint ? `<div class="q-hint">힌트: ${esc(q.hint)}</div>` : ''}
-      ${q.bone ? `<div class="bone">💡 <b>뼈대 공식:</b> ${esc(q.bone)}</div>` : ''}
-      <input type="text" data-input="${esc(k)}" value="${esc(st.answers[k] || '')}" placeholder="${esc(q.placeholder || '영어로 직접 입력해 보세요')}" autocapitalize="sentences" autocomplete="off" spellcheck="false">
-      <div class="row"><button class="btn" data-toggle="${esc(k)}">모범 답안 & 해설</button></div>
-      <div class="feedback" id="fb-${esc(k)}">
-        <div class="ans">✅ ${esc(q.answer)}</div>
-        <div>${q.explain || ''}</div>
-        <div class="row grade"><button class="btn ok" data-grade="ok" data-k="${esc(k)}">⭕ 맞았어</button><button class="btn ng" data-grade="ng" data-k="${esc(k)}">❌ 틀렸어</button></div>
-      </div></div>`;
-  }).join('');
+  $('questions').innerHTML = cur.questions.map((q, i) => renderQ(cur, q, i)).join('');
   renderProgress();
 }
 function renderProgress() {
@@ -197,6 +220,14 @@ $('questions').addEventListener('input', e => { const k = e.target.dataset.input
 $('questions').addEventListener('click', e => {
   const t = e.target.closest('[data-toggle]');
   if (t) { $('fb-' + t.dataset.toggle).classList.toggle('show'); return; }
+  const pk = e.target.closest('[data-pick]');
+  if (pk) {
+    const k = pk.dataset.k; if (st.answers[k]) return;
+    const [sid, qid] = k.split(':'); const q = allSets().find(x => x.id === sid).questions.find(x => x.id === qid);
+    st.answers[k] = pk.dataset.pick; st.results[k] = pk.dataset.pick === q.answer ? 'ok' : 'ng'; save();
+    const y = window.scrollY; renderTrain(); renderWrong(); window.scrollTo(0, y);
+    toast(st.results[k] === 'ok' ? '정답! 👍' : '오답노트에 담았어요'); return;
+  }
   const g = e.target.closest('[data-grade]');
   if (g) {
     st.results[g.dataset.k] = g.dataset.grade; save();
@@ -209,7 +240,7 @@ $('questions').addEventListener('click', e => {
 });
 function resetSet() {
   const cur = currentSet(); if (!cur || !confirm('이 세트의 답안과 채점 기록을 지울까요? (오답노트에서도 빠져요)')) return;
-  cur.questions.forEach(q => { const k = qkey(cur, q); delete st.answers[k]; delete st.results[k]; });
+  cur.questions.forEach(q => { const k = qkey(cur, q); delete st.answers[k]; delete st.results[k]; (q.slots || []).forEach((_, j) => delete st.answers[k + '#' + j]); });
   save(); renderTrain(); renderWrong();
 }
 function copyAnswers() {
@@ -217,7 +248,8 @@ function copyAnswers() {
   let text = `[영작 답안 제출] ${cur.title}\n`, any = false;
   cur.questions.forEach((q, i) => {
     const a = (st.answers[qkey(cur, q)] || '').trim();
-    if (a) { any = true; text += `\nQ${i + 1}. ${q.ko}\n내 답: ${a}\n`; }
+    const sl = (q.slots || []).map((x, j) => `${x.label}: ${(st.answers[qkey(cur, q) + '#' + j] || '').trim()}`).filter(t => !/: $/.test(t));
+    if (a || sl.length) { any = true; text += `\nQ${i + 1}. ${q.ko}${q.sentence ? '\n문장: ' + q.sentence.replace(/\[\[|\]\]/g, '') : ''}${sl.length ? '\n' + sl.join(' / ') : ''}\n내 답: ${a}\n`; }
   });
   if (!any) text += '(아직 입력된 답안이 없습니다)';
   else text += '\n위 답안을 채점하고, 틀린 부분은 이유와 함께 고쳐줘.';
@@ -235,7 +267,7 @@ function renderWrong() {
   const rows = [];
   allSets().forEach(s => s.questions.forEach(q => {
     const k = qkey(s, q);
-    if (st.results[k] === 'ng') rows.push(`<div class="list-row"><div class="grow"><b>${esc(q.ko)}</b><br>
+    if (st.results[k] === 'ng') rows.push(`<div class="list-row"><div class="grow"><b>${mark(q.ko)}</b>${q.sentence ? '<br>' + mark(q.sentence) : ''}<br>
       <span class="w">❌ ${esc(st.answers[k] || '(답 없음)')}</span><br><span class="r">⭕ ${esc(q.answer)}</span><br><span class="sub">${esc(s.title)}${q.tag ? ' · ' + esc(q.tag) : ''}</span></div>
       <button class="btn sub small" data-clear="${esc(k)}">해결</button></div>`);
   }));

@@ -1,9 +1,1872 @@
 {
- "version": 2,
+ "version": 3,
  "sets": [
   {
+   "id": "n1pos",
+   "week": 1,
+   "title": "1주 ① 품사 8개 알기",
+   "questions": [
+    {
+     "id": "a1",
+     "type": "choice",
+     "tag": "품사 개념",
+     "level": "",
+     "ko": "사람·사물·개념의 <b>이름</b>을 나타내는 말은?",
+     "options": [
+      "명사",
+      "동사",
+      "형용사",
+      "부사"
+     ],
+     "answer": "명사",
+     "explain": "예: shirt, news, advice, happiness. 문장에서 <b>주어·목적어·보어</b> 자리에 들어가요."
+    },
+    {
+     "id": "a2",
+     "type": "choice",
+     "tag": "품사 개념",
+     "level": "",
+     "ko": "명사를 꾸미거나, 주어·목적어의 <b>상태</b>를 설명하는 말은?",
+     "options": [
+      "명사",
+      "동사",
+      "형용사",
+      "부사"
+     ],
+     "answer": "형용사",
+     "explain": "예: happy, easy, bitter, warm. '어떤?'에 답하는 말. 문장에서 <b>보어</b> 자리에 들어갈 수 있어요."
+    },
+    {
+     "id": "a3",
+     "type": "choice",
+     "tag": "품사 개념",
+     "level": "",
+     "ko": "동사·형용사·문장 전체를 꾸며서 <b>언제/어디서/어떻게</b>를 더하는 말은?",
+     "options": [
+      "명사",
+      "형용사",
+      "부사",
+      "전치사"
+     ],
+     "answer": "부사",
+     "explain": "예: quickly, online, home, yesterday, abroad. 문장에서 <b>수식어</b>예요. 빼도 문장이 무너지지 않아요."
+    },
+    {
+     "id": "a4",
+     "type": "choice",
+     "tag": "품사 판별",
+     "level": "",
+     "ko": "[[happiness]]의 품사는?",
+     "options": [
+      "명사",
+      "동사",
+      "형용사",
+      "부사"
+     ],
+     "answer": "명사",
+     "explain": "-ness, -tion, -ment로 끝나면 대부분 명사."
+    },
+    {
+     "id": "a5",
+     "type": "choice",
+     "tag": "품사 판별",
+     "level": "",
+     "ko": "[[easily]]의 품사는?",
+     "options": [
+      "명사",
+      "동사",
+      "형용사",
+      "부사"
+     ],
+     "answer": "부사",
+     "explain": "형용사 easy + -ly = 부사. <b>보어 자리에는 easy</b>(형용사), 꾸밀 때는 easily(부사)."
+    },
+    {
+     "id": "a6",
+     "type": "choice",
+     "tag": "품사 판별 (함정)",
+     "level": "err",
+     "ko": "I bought it [[online]]. 에서 online의 품사는?",
+     "options": [
+      "명사",
+      "동사",
+      "형용사",
+      "부사"
+     ],
+     "answer": "부사",
+     "explain": "online은 그 자체로 '온라인으로'라는 <b>부사</b>예요. 부사 앞에는 전치사가 필요 없어서 <b>on online (X)</b>. home, abroad, downtown, there도 같아요."
+    },
+    {
+     "id": "a7",
+     "type": "choice",
+     "tag": "품사 판별",
+     "level": "",
+     "ko": "in, on, for, to 같은 말의 품사는?",
+     "options": [
+      "부사",
+      "전치사",
+      "접속사",
+      "형용사"
+     ],
+     "answer": "전치사",
+     "explain": "전치사 뒤에는 <b>반드시 명사</b>(또는 -ing)가 와요. 전치사+명사 덩어리는 문장에서 <b>수식어</b>예요."
+    },
+    {
+     "id": "a8",
+     "type": "choice",
+     "tag": "품사 판별",
+     "level": "",
+     "ko": "because 와 because of 의 품사는 각각?",
+     "options": [
+      "접속사 / 전치사",
+      "전치사 / 접속사",
+      "부사 / 전치사",
+      "접속사 / 접속사"
+     ],
+     "answer": "접속사 / 전치사",
+     "explain": "<b>because</b>(접속사) + 주어 + 동사: because it was raining<br><b>because of</b>(전치사) + 명사: because of the rain"
+    }
+   ]
+  },
+  {
+   "id": "n1role",
+   "week": 1,
+   "title": "1주 ② 문장성분 5개 알기",
+   "questions": [
+    {
+     "id": "b1",
+     "type": "choice",
+     "tag": "성분 개념",
+     "level": "",
+     "ko": "문장에서 '<b>누가/무엇이</b>'에 해당하는 자리는?",
+     "options": [
+      "S 주어",
+      "V 동사",
+      "O 목적어",
+      "C 보어",
+      "M 수식어"
+     ],
+     "answer": "S 주어",
+     "explain": "주어 자리에는 <b>명사</b>만 올 수 있어요 (동명사 -ing, to부정사, 명사절도 명사 취급)."
+    },
+    {
+     "id": "b2",
+     "type": "choice",
+     "tag": "성분 개념",
+     "level": "",
+     "ko": "문장의 중심이고, 뒤에 무엇이 와야 하는지(<b>형식</b>)를 결정하는 자리는?",
+     "options": [
+      "S 주어",
+      "V 동사",
+      "O 목적어",
+      "C 보어",
+      "M 수식어"
+     ],
+     "answer": "V 동사",
+     "explain": "영작할 때 <b>동사를 먼저 정하면</b> 나머지 자리가 자동으로 정해져요. 이게 이 앱의 핵심 습관이에요."
+    },
+    {
+     "id": "b3",
+     "type": "choice",
+     "tag": "성분 개념",
+     "level": "",
+     "ko": "동사의 대상, 한국어로 주로 '<b>~을/를</b>'에 해당하는 자리는?",
+     "options": [
+      "S 주어",
+      "V 동사",
+      "O 목적어",
+      "C 보어",
+      "M 수식어"
+     ],
+     "answer": "O 목적어",
+     "explain": "목적어 자리에도 <b>명사</b>만 와요."
+    },
+    {
+     "id": "b4",
+     "type": "choice",
+     "tag": "성분 개념",
+     "level": "",
+     "ko": "주어나 목적어가 <b>어떤 상태인지/무엇인지</b> 설명해서 문장을 완성하는 자리는?",
+     "options": [
+      "S 주어",
+      "V 동사",
+      "O 목적어",
+      "C 보어",
+      "M 수식어"
+     ],
+     "answer": "C 보어",
+     "explain": "보어 자리에는 <b>명사 또는 형용사</b>. 부사는 못 와요 → tastes bitter(O) bitterly(X)."
+    },
+    {
+     "id": "b5",
+     "type": "choice",
+     "tag": "성분 개념",
+     "level": "",
+     "ko": "<b>빼도 문장이 성립하는</b> 꾸밈 말(언제, 어디서, 어떻게, 누구에게)은?",
+     "options": [
+      "S 주어",
+      "V 동사",
+      "O 목적어",
+      "C 보어",
+      "M 수식어"
+     ],
+     "answer": "M 수식어",
+     "explain": "부사, 전치사+명사가 여기 들어가요. 문장 뼈대(S V O C)를 다 세운 <b>뒤에 붙이는</b> 거예요."
+    },
+    {
+     "id": "b6",
+     "type": "choice",
+     "tag": "빼 보기 테스트",
+     "level": "",
+     "ko": "She looks happy today. 에서 <b>빼도 문장이 성립하는</b> 말은?",
+     "options": [
+      "She",
+      "looks",
+      "happy",
+      "today"
+     ],
+     "answer": "today",
+     "explain": "happy를 빼면 'She looks.'(그녀는 보인다?)로 문장이 무너져요 → happy는 <b>보어</b>. today는 빼도 OK → <b>수식어</b>."
+    },
+    {
+     "id": "b7",
+     "type": "choice",
+     "tag": "자리→품사",
+     "level": "",
+     "ko": "<b>보어</b> 자리에 올 수 있는 품사는?",
+     "options": [
+      "명사·형용사",
+      "형용사·부사",
+      "부사만",
+      "동사"
+     ],
+     "answer": "명사·형용사",
+     "explain": "She is <b>a teacher</b>(명사) / She looks <b>tired</b>(형용사). 이 규칙 하나로 감각동사 실수가 사라져요."
+    },
+    {
+     "id": "b8",
+     "type": "choice",
+     "tag": "자리→품사",
+     "level": "",
+     "ko": "<b>수식어</b> 자리에 오는 것은?",
+     "options": [
+      "명사",
+      "형용사",
+      "부사·전치사+명사",
+      "동사"
+     ],
+     "answer": "부사·전치사+명사",
+     "explain": "online, yesterday, for me, at the meeting. 뼈대에 영향을 주지 않아요."
+    }
+   ]
+  },
+  {
+   "id": "n1map",
+   "week": 1,
+   "title": "1주 ③ 품사가 자리를 정한다",
+   "questions": [
+    {
+     "id": "c1",
+     "type": "choice",
+     "tag": "보어=형용사",
+     "level": "",
+     "ko": "This coffee tastes ___.",
+     "options": [
+      "bitter",
+      "bitterly"
+     ],
+     "answer": "bitter",
+     "explain": "tastes 뒤는 주어 상태를 말하는 <b>보어</b> 자리 → 형용사."
+    },
+    {
+     "id": "c2",
+     "type": "choice",
+     "tag": "수식어=부사",
+     "level": "",
+     "ko": "She speaks English ___.",
+     "options": [
+      "fluent",
+      "fluently"
+     ],
+     "answer": "fluently",
+     "explain": "speaks English에서 문장이 이미 완성(S V O). 남은 건 '어떻게'를 꾸미는 <b>수식어</b> → 부사."
+    },
+    {
+     "id": "c3",
+     "type": "choice",
+     "tag": "부사 앞 전치사 X",
+     "level": "err",
+     "ko": "I bought the shirt ___ yesterday.",
+     "options": [
+      "on online",
+      "online"
+     ],
+     "answer": "online",
+     "explain": "online은 부사(수식어). 전치사가 또 붙을 필요 없어요."
+    },
+    {
+     "id": "c4",
+     "type": "choice",
+     "tag": "주어=명사",
+     "level": "warn",
+     "ko": "___ the project now is a waste of time.",
+     "options": [
+      "Give up",
+      "Giving up"
+     ],
+     "answer": "Giving up",
+     "explain": "주어 자리는 <b>명사</b>만. 동사를 주어로 쓰려면 -ing(동명사)로 명사로 바꿔요."
+    },
+    {
+     "id": "c5",
+     "type": "choice",
+     "tag": "전치사 뒤=명사",
+     "level": "",
+     "ko": "I'm looking forward to ___ you.",
+     "options": [
+      "see",
+      "seeing"
+     ],
+     "answer": "seeing",
+     "explain": "여기 to는 <b>전치사</b> → 뒤에 명사 → seeing."
+    },
+    {
+     "id": "c6",
+     "type": "choice",
+     "tag": "전치사 vs 접속사",
+     "level": "",
+     "ko": "We stayed home ___ the heavy rain.",
+     "options": [
+      "because",
+      "because of"
+     ],
+     "answer": "because of",
+     "explain": "뒤가 명사(the heavy rain) → 전치사 because of. 뒤가 주어+동사면 because."
+    },
+    {
+     "id": "c7",
+     "type": "choice",
+     "tag": "보어가 설명하는 대상",
+     "level": "err",
+     "ko": "Fast internet makes ___ easier for us to work from home.",
+     "options": [
+      "us",
+      "it"
+     ],
+     "answer": "it",
+     "explain": "<b>쉬운 건 '우리'가 아니라 '집에서 일하는 것'</b>이에요. 그 '것'(to work)이 길어서 뒤로 보내고 자리에 it을 세워요. makes us easy는 '우리를 만만하게 만든다'가 돼요."
+    },
+    {
+     "id": "c8",
+     "type": "choice",
+     "tag": "주어-동사 수일치",
+     "level": "err",
+     "ko": "The shirt that I bought online ___ too small for me.",
+     "options": [
+      "is",
+      "are"
+     ],
+     "answer": "is",
+     "explain": "주어의 핵심은 <b>The shirt</b>(1벌, 단수). 'that I bought online'은 꾸며주는 말일 뿐."
+    }
+   ]
+  },
+  {
+   "id": "n2a",
+   "week": 2,
+   "title": "2주 ① 성분 찾기 (1~3형식)",
+   "questions": [
+    {
+     "id": "d1",
+     "type": "choice",
+     "tag": "성분 찾기",
+     "level": "",
+     "ko": "표시된 부분의 성분은?",
+     "options": [
+      "S 주어",
+      "V 동사",
+      "O 목적어",
+      "C 보어",
+      "M 수식어"
+     ],
+     "answer": "S 주어",
+     "explain": "happen은 뒤에 아무것도 필요 없는 1형식 동사.",
+     "sentence": "[[An accident]] happened last night."
+    },
+    {
+     "id": "d2",
+     "type": "choice",
+     "tag": "성분 찾기",
+     "level": "",
+     "ko": "표시된 부분의 성분은?",
+     "options": [
+      "S 주어",
+      "V 동사",
+      "O 목적어",
+      "C 보어",
+      "M 수식어"
+     ],
+     "answer": "M 수식어",
+     "explain": "빼도 'An accident happened.'로 문장 성립.",
+     "sentence": "An accident happened [[last night]]."
+    },
+    {
+     "id": "d3",
+     "type": "choice",
+     "tag": "성분 찾기",
+     "level": "",
+     "ko": "표시된 부분의 성분은?",
+     "options": [
+      "S 주어",
+      "V 동사",
+      "O 목적어",
+      "C 보어",
+      "M 수식어"
+     ],
+     "answer": "C 보어",
+     "explain": "smells(감각동사) 뒤 주어 상태 → 보어 → 형용사 wonderful.",
+     "sentence": "The soup smells [[wonderful]]."
+    },
+    {
+     "id": "d4",
+     "type": "choice",
+     "tag": "성분 찾기",
+     "level": "",
+     "ko": "표시된 부분의 성분은?",
+     "options": [
+      "S 주어",
+      "V 동사",
+      "O 목적어",
+      "C 보어",
+      "M 수식어"
+     ],
+     "answer": "O 목적어",
+     "explain": "discuss는 바로 목적어를 받아요 (discuss about X).",
+     "sentence": "We discussed [[the plan]] at the meeting."
+    },
+    {
+     "id": "d5",
+     "type": "choice",
+     "tag": "성분 찾기",
+     "level": "",
+     "ko": "표시된 부분의 성분은?",
+     "options": [
+      "S 주어",
+      "V 동사",
+      "O 목적어",
+      "C 보어",
+      "M 수식어"
+     ],
+     "answer": "M 수식어",
+     "explain": "전치사+명사 = 수식어. 그래서 이 문장은 3형식(S V O)이에요.",
+     "sentence": "She explained the rule [[to me]]."
+    },
+    {
+     "id": "d6",
+     "type": "choice",
+     "tag": "성분 찾기",
+     "level": "",
+     "ko": "표시된 부분의 성분은?",
+     "options": [
+      "S 주어",
+      "V 동사",
+      "O 목적어",
+      "C 보어",
+      "M 수식어"
+     ],
+     "answer": "S 주어",
+     "explain": "-ing 덩어리 전체가 하나의 명사 = 주어. 그래서 동사는 단수 is.",
+     "sentence": "[[Giving up the project now]] is a waste of time."
+    },
+    {
+     "id": "d7",
+     "type": "choice",
+     "tag": "성분 찾기",
+     "level": "",
+     "ko": "표시된 부분의 성분은?",
+     "options": [
+      "S 주어",
+      "V 동사",
+      "O 목적어",
+      "C 보어",
+      "M 수식어"
+     ],
+     "answer": "C 보어",
+     "explain": "is 뒤에서 주어가 '무엇인지' 설명 → 보어(명사).",
+     "sentence": "Giving up the project now is [[a waste of time]]."
+    },
+    {
+     "id": "d8",
+     "type": "choice",
+     "tag": "성분 찾기",
+     "level": "",
+     "ko": "표시된 부분의 성분은?",
+     "options": [
+      "S 주어",
+      "V 동사",
+      "O 목적어",
+      "C 보어",
+      "M 수식어"
+     ],
+     "answer": "M 수식어",
+     "explain": "online(부사) = 수식어. 수식어 순서는 보통 <b>장소/방법 → 시간</b>.",
+     "sentence": "I bought the shirt [[online]] yesterday."
+    }
+   ]
+  },
+  {
+   "id": "n2b",
+   "week": 2,
+   "title": "2주 ② 성분 찾기 (4·5형식)",
+   "questions": [
+    {
+     "id": "e1",
+     "type": "choice",
+     "tag": "4형식",
+     "level": "",
+     "ko": "표시된 부분의 성분은?",
+     "options": [
+      "간접목적어 (~에게)",
+      "직접목적어 (~을)",
+      "보어",
+      "수식어"
+     ],
+     "answer": "간접목적어 (~에게)",
+     "explain": "4형식: S + V + <b>사람</b> + 사물.",
+     "sentence": "She sent [[me]] an email."
+    },
+    {
+     "id": "e2",
+     "type": "choice",
+     "tag": "4형식",
+     "level": "",
+     "ko": "표시된 부분의 성분은?",
+     "options": [
+      "간접목적어 (~에게)",
+      "직접목적어 (~을)",
+      "보어",
+      "수식어"
+     ],
+     "answer": "직접목적어 (~을)",
+     "explain": "",
+     "sentence": "She sent me [[an email]]."
+    },
+    {
+     "id": "e3",
+     "type": "choice",
+     "tag": "5형식",
+     "level": "",
+     "ko": "표시된 부분의 성분은?",
+     "options": [
+      "목적어",
+      "목적격보어",
+      "의미상 주어",
+      "진짜 목적어"
+     ],
+     "answer": "목적격보어",
+     "explain": "me가 warm한 상태 → 목적어의 상태를 설명하는 <b>목적격보어</b> → 형용사.",
+     "sentence": "This jacket keeps me [[warm]]."
+    },
+    {
+     "id": "e4",
+     "type": "choice",
+     "tag": "5형식",
+     "level": "",
+     "ko": "표시된 부분의 성분은?",
+     "options": [
+      "목적어",
+      "목적격보어",
+      "의미상 주어",
+      "진짜 목적어"
+     ],
+     "answer": "목적격보어",
+     "explain": "me가 leave하는 주체 → 목적격보어. allow는 to V.",
+     "sentence": "He allowed me [[to leave]]."
+    },
+    {
+     "id": "e5",
+     "type": "choice",
+     "tag": "가목적어",
+     "level": "err",
+     "ko": "표시된 부분의 성분은?",
+     "options": [
+      "목적어",
+      "목적격보어",
+      "의미상 주어",
+      "진짜 목적어"
+     ],
+     "answer": "목적어",
+     "explain": "가짜 목적어 it. 진짜 목적어(to stay healthy)가 길어서 뒤로 보냈어요.",
+     "sentence": "Regular exercise makes [[it]] easier for us to stay healthy."
+    },
+    {
+     "id": "e6",
+     "type": "choice",
+     "tag": "가목적어",
+     "level": "err",
+     "ko": "표시된 부분의 성분은?",
+     "options": [
+      "목적어",
+      "목적격보어",
+      "의미상 주어",
+      "진짜 목적어"
+     ],
+     "answer": "목적격보어",
+     "explain": "it(= 건강을 유지하는 것)이 easier한 상태.",
+     "sentence": "Regular exercise makes it [[easier]] for us to stay healthy."
+    },
+    {
+     "id": "e7",
+     "type": "choice",
+     "tag": "가목적어",
+     "level": "err",
+     "ko": "표시된 부분의 역할은?",
+     "options": [
+      "목적어",
+      "목적격보어",
+      "의미상 주어",
+      "진짜 목적어"
+     ],
+     "answer": "의미상 주어",
+     "explain": "'우리가' 건강을 유지 → for us. 한국어 '우리가'를 목적어 자리에 넣으면 makes us easy가 돼서 무너져요.",
+     "sentence": "Regular exercise makes it easier [[for us]] to stay healthy."
+    },
+    {
+     "id": "e8",
+     "type": "choice",
+     "tag": "가목적어",
+     "level": "err",
+     "ko": "표시된 부분의 역할은?",
+     "options": [
+      "목적어",
+      "목적격보어",
+      "의미상 주어",
+      "진짜 목적어"
+     ],
+     "answer": "진짜 목적어",
+     "explain": "'쉽게 만드는 대상' = 건강을 유지하는 것.",
+     "sentence": "Regular exercise makes it easier for us [[to stay healthy]]."
+    }
+   ]
+  },
+  {
+   "id": "n2c",
+   "week": 2,
+   "title": "2주 ③ 몇 형식? (동사가 결정)",
+   "questions": [
+    {
+     "id": "f1",
+     "type": "choice",
+     "tag": "형식 판별",
+     "level": "",
+     "ko": "몇 형식?",
+     "options": [
+      "1형식",
+      "2형식",
+      "3형식",
+      "4형식",
+      "5형식"
+     ],
+     "answer": "2형식",
+     "explain": "S V C. look + 형용사.",
+     "sentence": "She looks tired."
+    },
+    {
+     "id": "f2",
+     "type": "choice",
+     "tag": "형식 판별",
+     "level": "",
+     "ko": "몇 형식?",
+     "options": [
+      "1형식",
+      "2형식",
+      "3형식",
+      "4형식",
+      "5형식"
+     ],
+     "answer": "4형식",
+     "explain": "S V 간접O 직접O.",
+     "sentence": "She told me the truth."
+    },
+    {
+     "id": "f3",
+     "type": "choice",
+     "tag": "형식 판별",
+     "level": "",
+     "ko": "몇 형식?",
+     "options": [
+      "1형식",
+      "2형식",
+      "3형식",
+      "4형식",
+      "5형식"
+     ],
+     "answer": "5형식",
+     "explain": "me = wait하는 주체 → S V O OC.",
+     "sentence": "She told me to wait."
+    },
+    {
+     "id": "f4",
+     "type": "choice",
+     "tag": "형식 판별",
+     "level": "warn",
+     "ko": "몇 형식?",
+     "options": [
+      "1형식",
+      "2형식",
+      "3형식",
+      "4형식",
+      "5형식"
+     ],
+     "answer": "3형식",
+     "explain": "to me는 수식어. explain은 4형식 불가.",
+     "sentence": "He explained the problem to me."
+    },
+    {
+     "id": "f5",
+     "type": "choice",
+     "tag": "형식 판별",
+     "level": "",
+     "ko": "몇 형식?",
+     "options": [
+      "1형식",
+      "2형식",
+      "3형식",
+      "4형식",
+      "5형식"
+     ],
+     "answer": "1형식",
+     "explain": "at the station은 수식어.",
+     "sentence": "We arrived at the station."
+    },
+    {
+     "id": "f6",
+     "type": "choice",
+     "tag": "형식 판별",
+     "level": "",
+     "ko": "몇 형식?",
+     "options": [
+      "1형식",
+      "2형식",
+      "3형식",
+      "4형식",
+      "5형식"
+     ],
+     "answer": "5형식",
+     "explain": "make it easy to V = 5형식 가목적어.",
+     "sentence": "Smartphones make it easy to find information."
+    },
+    {
+     "id": "f7",
+     "type": "choice",
+     "tag": "형식 판별",
+     "level": "",
+     "ko": "주절은 몇 형식?",
+     "options": [
+      "1형식",
+      "2형식",
+      "3형식",
+      "4형식",
+      "5형식"
+     ],
+     "answer": "3형식",
+     "explain": "before 이하는 통째로 <b>수식어(부사절)</b>. 주절 I drank a cup of coffee = S V O.",
+     "sentence": "I drank a cup of coffee before I went to bed."
+    },
+    {
+     "id": "f8",
+     "type": "choice",
+     "tag": "형식 판별",
+     "level": "",
+     "ko": "몇 형식?",
+     "options": [
+      "1형식",
+      "2형식",
+      "3형식",
+      "4형식",
+      "5형식"
+     ],
+     "answer": "5형식",
+     "explain": "me = happy → 5형식. 'She made me a cake'는 me ≠ cake → 4형식.",
+     "sentence": "She made me happy."
+    }
+   ]
+  },
+  {
+   "id": "n3a",
+   "week": 3,
+   "title": "3주 ① 조립 (1~3형식)",
+   "questions": [
+    {
+     "id": "g1",
+     "type": "build",
+     "tag": "2형식",
+     "level": "",
+     "ko": "이 커피는 정말 쓴맛이 난다.",
+     "hint": "",
+     "bone": "① 동사 찾기 → ② 형식 → ③ 칸 채우기",
+     "slots": [
+      {
+       "label": "S 주어",
+       "hint": "이 커피는",
+       "answer": "This coffee"
+      },
+      {
+       "label": "V 동사",
+       "hint": "맛이 나다",
+       "answer": "tastes"
+      },
+      {
+       "label": "C 보어",
+       "hint": "형용사!",
+       "answer": "really bitter"
+      }
+     ],
+     "answer": "This coffee tastes really bitter.",
+     "explain": "동사 taste(감각) → 2형식 → 뒤는 보어 자리 → 형용사."
+    },
+    {
+     "id": "g2",
+     "type": "build",
+     "tag": "3형식 explain (진단 12번)",
+     "level": "err",
+     "ko": "그녀는 나에게 그 문제에 대해 아무것도 설명해 주지 않았다.",
+     "hint": "",
+     "bone": "",
+     "slots": [
+      {
+       "label": "S 주어",
+       "hint": "",
+       "answer": "She"
+      },
+      {
+       "label": "V 동사",
+       "hint": "부정",
+       "answer": "didn't explain"
+      },
+      {
+       "label": "O 목적어",
+       "hint": "무엇을",
+       "answer": "anything"
+      },
+      {
+       "label": "M ~에게",
+       "hint": "전치사+명사",
+       "answer": "to me"
+      },
+      {
+       "label": "M ~에 대해",
+       "hint": "전치사+명사",
+       "answer": "about the problem"
+      }
+     ],
+     "answer": "She didn't explain anything to me about the problem.",
+     "explain": "explain은 3형식 → O 자리에 '무엇을'만. '나에게'는 <b>수식어</b>로 빼서 to me. 진단 때 '나에게'를 빠뜨린 건 넣을 자리를 몰라서였어요."
+    },
+    {
+     "id": "g3",
+     "type": "build",
+     "tag": "3형식 discuss",
+     "level": "",
+     "ko": "우리는 회의에서 그 계획을 논의했다.",
+     "hint": "",
+     "bone": "",
+     "slots": [
+      {
+       "label": "S 주어",
+       "hint": "",
+       "answer": "We"
+      },
+      {
+       "label": "V 동사",
+       "hint": "",
+       "answer": "discussed"
+      },
+      {
+       "label": "O 목적어",
+       "hint": "",
+       "answer": "the plan"
+      },
+      {
+       "label": "M 수식어",
+       "hint": "어디서",
+       "answer": "at the meeting"
+      }
+     ],
+     "answer": "We discussed the plan at the meeting.",
+     "explain": "discuss는 바로 O. about 넣지 않기."
+    },
+    {
+     "id": "g4",
+     "type": "build",
+     "tag": "2형식 + 수식어 (진단 15번)",
+     "level": "err",
+     "ko": "내가 어제 온라인으로 산 그 셔츠는 나에게 너무 작다.",
+     "hint": "",
+     "bone": "",
+     "slots": [
+      {
+       "label": "S 주어",
+       "hint": "셔츠 + 꾸미는 말",
+       "answer": "The shirt that I bought online yesterday"
+      },
+      {
+       "label": "V 동사",
+       "hint": "단수!",
+       "answer": "is"
+      },
+      {
+       "label": "C 보어",
+       "hint": "형용사",
+       "answer": "too small"
+      },
+      {
+       "label": "M 수식어",
+       "hint": "나에게",
+       "answer": "for me"
+      }
+     ],
+     "answer": "The shirt that I bought online yesterday is too small for me.",
+     "explain": "S 핵심은 shirt(1벌) → is. online은 부사라 on 없이. 크기 기준은 for me."
+    },
+    {
+     "id": "g5",
+     "type": "build",
+     "tag": "2형식 news",
+     "level": "",
+     "ko": "그 소식은 이상하게 들린다.",
+     "hint": "",
+     "bone": "",
+     "slots": [
+      {
+       "label": "S 주어",
+       "hint": "",
+       "answer": "The news"
+      },
+      {
+       "label": "V 동사",
+       "hint": "단수",
+       "answer": "sounds"
+      },
+      {
+       "label": "C 보어",
+       "hint": "형용사",
+       "answer": "strange"
+      }
+     ],
+     "answer": "The news sounds strange.",
+     "explain": "news는 단수. 보어는 strangely(X)."
+    },
+    {
+     "id": "g6",
+     "type": "build",
+     "tag": "1형식",
+     "level": "",
+     "ko": "어젯밤에 사고가 일어났다.",
+     "hint": "",
+     "bone": "",
+     "slots": [
+      {
+       "label": "S 주어",
+       "hint": "",
+       "answer": "An accident"
+      },
+      {
+       "label": "V 동사",
+       "hint": "",
+       "answer": "happened"
+      },
+      {
+       "label": "M 수식어",
+       "hint": "",
+       "answer": "last night"
+      }
+     ],
+     "answer": "An accident happened last night.",
+     "explain": "1형식: 뼈대는 S V뿐. was happened (X)."
+    }
+   ]
+  },
+  {
+   "id": "n3b",
+   "week": 3,
+   "title": "3주 ② 조립 (4·5형식)",
+   "questions": [
+    {
+     "id": "h1",
+     "type": "build",
+     "tag": "4형식",
+     "level": "",
+     "ko": "그녀는 나에게 이메일을 보냈다.",
+     "hint": "",
+     "bone": "",
+     "slots": [
+      {
+       "label": "S 주어",
+       "hint": "",
+       "answer": "She"
+      },
+      {
+       "label": "V 동사",
+       "hint": "",
+       "answer": "sent"
+      },
+      {
+       "label": "O ~에게",
+       "hint": "",
+       "answer": "me"
+      },
+      {
+       "label": "O ~을",
+       "hint": "",
+       "answer": "an email"
+      }
+     ],
+     "answer": "She sent me an email.",
+     "explain": "send는 4형식 OK."
+    },
+    {
+     "id": "h2",
+     "type": "build",
+     "tag": "3형식 recommend",
+     "level": "warn",
+     "ko": "그는 나에게 좋은 식당을 추천해 줬다.",
+     "hint": "",
+     "bone": "",
+     "slots": [
+      {
+       "label": "S 주어",
+       "hint": "",
+       "answer": "He"
+      },
+      {
+       "label": "V 동사",
+       "hint": "",
+       "answer": "recommended"
+      },
+      {
+       "label": "O 목적어",
+       "hint": "무엇을",
+       "answer": "a good restaurant"
+      },
+      {
+       "label": "M 수식어",
+       "hint": "~에게",
+       "answer": "to me"
+      }
+     ],
+     "answer": "He recommended a good restaurant to me.",
+     "explain": "recommend, explain, suggest, announce는 4형식 불가 → to 사람은 수식어로."
+    },
+    {
+     "id": "h3",
+     "type": "build",
+     "tag": "5형식 상태",
+     "level": "",
+     "ko": "이 재킷은 나를 따뜻하게 해 준다.",
+     "hint": "",
+     "bone": "",
+     "slots": [
+      {
+       "label": "S 주어",
+       "hint": "",
+       "answer": "This jacket"
+      },
+      {
+       "label": "V 동사",
+       "hint": "",
+       "answer": "keeps"
+      },
+      {
+       "label": "O 목적어",
+       "hint": "",
+       "answer": "me"
+      },
+      {
+       "label": "OC 목적격보어",
+       "hint": "형용사",
+       "answer": "warm"
+      }
+     ],
+     "answer": "This jacket keeps me warm.",
+     "explain": "me가 warm → 5형식."
+    },
+    {
+     "id": "h4",
+     "type": "build",
+     "tag": "5형식 사역",
+     "level": "",
+     "ko": "상사는 내가 보고서를 다시 쓰게 시켰다.",
+     "hint": "",
+     "bone": "",
+     "slots": [
+      {
+       "label": "S 주어",
+       "hint": "",
+       "answer": "My boss"
+      },
+      {
+       "label": "V 동사",
+       "hint": "",
+       "answer": "made"
+      },
+      {
+       "label": "O 목적어",
+       "hint": "",
+       "answer": "me"
+      },
+      {
+       "label": "OC 목적격보어",
+       "hint": "동사원형",
+       "answer": "rewrite the report"
+      }
+     ],
+     "answer": "My boss made me rewrite the report.",
+     "explain": "make(사역) → 원형. ask였다면 asked me to rewrite."
+    },
+    {
+     "id": "h5",
+     "type": "build",
+     "tag": "5형식 가목적어 (진단 14번)",
+     "level": "err",
+     "ko": "규칙적인 운동은 우리가 건강을 유지하는 것을 더 쉽게 만들어 준다.",
+     "hint": "",
+     "bone": "",
+     "slots": [
+      {
+       "label": "S 주어",
+       "hint": "",
+       "answer": "Regular exercise"
+      },
+      {
+       "label": "V 동사",
+       "hint": "",
+       "answer": "makes"
+      },
+      {
+       "label": "O 가목적어",
+       "hint": "",
+       "answer": "it"
+      },
+      {
+       "label": "OC 목적격보어",
+       "hint": "형용사",
+       "answer": "easier"
+      },
+      {
+       "label": "의미상 주어",
+       "hint": "우리가",
+       "answer": "for us"
+      },
+      {
+       "label": "진짜 목적어",
+       "hint": "~하는 것",
+       "answer": "to stay healthy"
+      }
+     ],
+     "answer": "Regular exercise makes it easier for us to stay healthy.",
+     "explain": "'우리가'는 for us 자리로, '~하는 것'은 to V로 뒤에. 칸이 정해져 있으면 makes us easy가 나올 수 없어요."
+    },
+    {
+     "id": "h6",
+     "type": "build",
+     "tag": "5형식 가목적어",
+     "level": "err",
+     "ko": "스마트폰은 우리가 정보를 찾는 것을 더 쉽게 만들어 준다.",
+     "hint": "",
+     "bone": "",
+     "slots": [
+      {
+       "label": "S 주어",
+       "hint": "",
+       "answer": "Smartphones"
+      },
+      {
+       "label": "V 동사",
+       "hint": "",
+       "answer": "make"
+      },
+      {
+       "label": "O 가목적어",
+       "hint": "",
+       "answer": "it"
+      },
+      {
+       "label": "OC 목적격보어",
+       "hint": "",
+       "answer": "easier"
+      },
+      {
+       "label": "의미상 주어",
+       "hint": "",
+       "answer": "for us"
+      },
+      {
+       "label": "진짜 목적어",
+       "hint": "",
+       "answer": "to find information"
+      }
+     ],
+     "answer": "Smartphones make it easier for us to find information.",
+     "explain": "주어 복수 → make."
+    }
+   ]
+  },
+  {
+   "id": "n3c",
+   "week": 3,
+   "title": "3주 ③ 조립 (주어 자리 · 명사 감각)",
+   "questions": [
+    {
+     "id": "i1",
+     "type": "build",
+     "tag": "동명사 주어 (진단 16번)",
+     "level": "err",
+     "ko": "지금 그 프로젝트를 포기하는 것은 시간 낭비이다.",
+     "hint": "",
+     "bone": "",
+     "slots": [
+      {
+       "label": "S 주어",
+       "hint": "-ing 덩어리",
+       "answer": "Giving up the project now"
+      },
+      {
+       "label": "V 동사",
+       "hint": "단수",
+       "answer": "is"
+      },
+      {
+       "label": "C 보어",
+       "hint": "명사",
+       "answer": "a waste of time"
+      }
+     ],
+     "answer": "Giving up the project now is a waste of time.",
+     "explain": "'시간 낭비'는 명사 보어 a waste of time. is wasting time은 '시간을 낭비하고 있다'(진행)."
+    },
+    {
+     "id": "i2",
+     "type": "build",
+     "tag": "동명사 주어",
+     "level": "",
+     "ko": "매일 영어로 일기를 쓰는 것은 쉽지 않다.",
+     "hint": "",
+     "bone": "",
+     "slots": [
+      {
+       "label": "S 주어",
+       "hint": "",
+       "answer": "Writing a diary in English every day"
+      },
+      {
+       "label": "V 동사",
+       "hint": "",
+       "answer": "is not"
+      },
+      {
+       "label": "C 보어",
+       "hint": "",
+       "answer": "easy"
+      }
+     ],
+     "answer": "Writing a diary in English every day is not easy.",
+     "explain": "It is not easy to write ~ 도 OK (가주어)."
+    },
+    {
+     "id": "i3",
+     "type": "build",
+     "tag": "복수 명사 pants",
+     "level": "warn",
+     "ko": "이 바지는 나에게 너무 길다.",
+     "hint": "",
+     "bone": "",
+     "slots": [
+      {
+       "label": "S 주어",
+       "hint": "",
+       "answer": "These pants"
+      },
+      {
+       "label": "V 동사",
+       "hint": "복수",
+       "answer": "are"
+      },
+      {
+       "label": "C 보어",
+       "hint": "",
+       "answer": "too long"
+      },
+      {
+       "label": "M 수식어",
+       "hint": "",
+       "answer": "for me"
+      }
+     ],
+     "answer": "These pants are too long for me.",
+     "explain": "pants, glasses, jeans는 항상 복수."
+    },
+    {
+     "id": "i4",
+     "type": "build",
+     "tag": "진단 15번 응용",
+     "level": "err",
+     "ko": "그녀가 지난주에 온라인으로 산 코트는 그녀에게 너무 크다.",
+     "hint": "",
+     "bone": "",
+     "slots": [
+      {
+       "label": "S 주어",
+       "hint": "",
+       "answer": "The coat that she bought online last week"
+      },
+      {
+       "label": "V 동사",
+       "hint": "",
+       "answer": "is"
+      },
+      {
+       "label": "C 보어",
+       "hint": "",
+       "answer": "too big"
+      },
+      {
+       "label": "M 수식어",
+       "hint": "",
+       "answer": "for her"
+      }
+     ],
+     "answer": "The coat that she bought online last week is too big for her.",
+     "explain": ""
+    },
+    {
+     "id": "i5",
+     "type": "build",
+     "tag": "불가산 advice",
+     "level": "",
+     "ko": "그의 조언은 정말 도움이 됐다.",
+     "hint": "",
+     "bone": "",
+     "slots": [
+      {
+       "label": "S 주어",
+       "hint": "",
+       "answer": "His advice"
+      },
+      {
+       "label": "V 동사",
+       "hint": "단수",
+       "answer": "was"
+      },
+      {
+       "label": "C 보어",
+       "hint": "형용사",
+       "answer": "really helpful"
+      }
+     ],
+     "answer": "His advice was really helpful.",
+     "explain": "advice는 셀 수 없음 → an advice(X), advices(X)."
+    },
+    {
+     "id": "i6",
+     "type": "build",
+     "tag": "동명사 주어 + 4형식",
+     "level": "",
+     "ko": "사람들을 만나는 것은 나에게 에너지를 준다.",
+     "hint": "",
+     "bone": "",
+     "slots": [
+      {
+       "label": "S 주어",
+       "hint": "",
+       "answer": "Meeting people"
+      },
+      {
+       "label": "V 동사",
+       "hint": "",
+       "answer": "gives"
+      },
+      {
+       "label": "O ~에게",
+       "hint": "",
+       "answer": "me"
+      },
+      {
+       "label": "O ~을",
+       "hint": "",
+       "answer": "energy"
+      }
+     ],
+     "answer": "Meeting people gives me energy.",
+     "explain": "동명사 주어는 단수 → gives."
+    }
+   ]
+  },
+  {
+   "id": "n4a",
+   "week": 4,
+   "title": "4주 ① 절 안의 절 (시제 맞추기)",
+   "questions": [
+    {
+     "id": "j1",
+     "type": "build",
+     "tag": "진단 17번",
+     "level": "err",
+     "ko": "나는 어젯밤 잠자리에 들기 전에 커피 한 잔을 마셨다.",
+     "hint": "",
+     "bone": "",
+     "slots": [
+      {
+       "label": "주절 (전체)",
+       "hint": "과거",
+       "answer": "I drank a cup of coffee"
+      },
+      {
+       "label": "접속사",
+       "hint": "",
+       "answer": "before"
+      },
+      {
+       "label": "절의 S",
+       "hint": "",
+       "answer": "I"
+      },
+      {
+       "label": "절의 V (시제!)",
+       "hint": "주절이 과거면?",
+       "answer": "went"
+      },
+      {
+       "label": "절의 나머지",
+       "hint": "",
+       "answer": "to bed last night"
+      }
+     ],
+     "answer": "I drank a cup of coffee before I went to bed last night.",
+     "explain": "before 절도 <b>똑같이 S+V를 가진 작은 문장</b>. 주절이 과거면 이 V도 과거. 자러 가는 동작은 go to bed."
+    },
+    {
+     "id": "j2",
+     "type": "build",
+     "tag": "진단 17번 응용",
+     "level": "err",
+     "ko": "그는 어젯밤 잠자리에 들기 전에 따뜻한 우유 한 잔을 마셨다.",
+     "hint": "",
+     "bone": "",
+     "slots": [
+      {
+       "label": "주절 (전체)",
+       "hint": "",
+       "answer": "He drank a glass of warm milk"
+      },
+      {
+       "label": "접속사",
+       "hint": "",
+       "answer": "before"
+      },
+      {
+       "label": "절의 S",
+       "hint": "",
+       "answer": "he"
+      },
+      {
+       "label": "절의 V (시제!)",
+       "hint": "",
+       "answer": "went"
+      },
+      {
+       "label": "절의 나머지",
+       "hint": "",
+       "answer": "to bed last night"
+      }
+     ],
+     "answer": "He drank a glass of warm milk before he went to bed last night.",
+     "explain": ""
+    },
+    {
+     "id": "j3",
+     "type": "build",
+     "tag": "진단 18번",
+     "level": "warn",
+     "ko": "비가 많이 오고 있었기 때문에, 우리는 집에 머무르기로 결정했다.",
+     "hint": "",
+     "bone": "",
+     "slots": [
+      {
+       "label": "접속사",
+       "hint": "",
+       "answer": "Because"
+      },
+      {
+       "label": "절의 S",
+       "hint": "날씨 주어",
+       "answer": "it"
+      },
+      {
+       "label": "절의 V (시제!)",
+       "hint": "과거진행",
+       "answer": "was raining"
+      },
+      {
+       "label": "절의 나머지",
+       "hint": "",
+       "answer": "heavily"
+      },
+      {
+       "label": "주절 (전체)",
+       "hint": "",
+       "answer": "we decided to stay home"
+      }
+     ],
+     "answer": "Because it was raining heavily, we decided to stay home.",
+     "explain": "because 뒤는 S+V. 날씨는 주어 it."
+    },
+    {
+     "id": "j4",
+     "type": "build",
+     "tag": "진단 13번",
+     "level": "",
+     "ko": "나는 서울에 이사 온 이후로 계속 이 회사에서 일하고 있다.",
+     "hint": "",
+     "bone": "",
+     "slots": [
+      {
+       "label": "주절 (전체)",
+       "hint": "현재완료진행",
+       "answer": "I've been working for this company"
+      },
+      {
+       "label": "접속사",
+       "hint": "",
+       "answer": "since"
+      },
+      {
+       "label": "절의 S",
+       "hint": "",
+       "answer": "I"
+      },
+      {
+       "label": "절의 V (시제!)",
+       "hint": "과거 시점",
+       "answer": "moved"
+      },
+      {
+       "label": "절의 나머지",
+       "hint": "",
+       "answer": "to Seoul"
+      }
+     ],
+     "answer": "I've been working for this company since I moved to Seoul.",
+     "explain": "since 절은 시작 시점(과거), 주절은 지금까지 계속(현재완료진행)."
+    },
+    {
+     "id": "j5",
+     "type": "build",
+     "tag": "미래인데 현재형",
+     "level": "warn",
+     "ko": "네가 도착하면 나에게 전화해.",
+     "hint": "",
+     "bone": "",
+     "slots": [
+      {
+       "label": "주절 (전체)",
+       "hint": "",
+       "answer": "Call me"
+      },
+      {
+       "label": "접속사",
+       "hint": "",
+       "answer": "when"
+      },
+      {
+       "label": "절의 S",
+       "hint": "",
+       "answer": "you"
+      },
+      {
+       "label": "절의 V (시제!)",
+       "hint": "미래지만?",
+       "answer": "arrive"
+      }
+     ],
+     "answer": "Call me when you arrive.",
+     "explain": "시간·조건 절은 미래도 현재형."
+    },
+    {
+     "id": "j6",
+     "type": "build",
+     "tag": "과거 + after",
+     "level": "err",
+     "ko": "나는 어제 퇴근한 후에 친구를 만났다.",
+     "hint": "",
+     "bone": "",
+     "slots": [
+      {
+       "label": "주절 (전체)",
+       "hint": "",
+       "answer": "I met my friend"
+      },
+      {
+       "label": "접속사",
+       "hint": "",
+       "answer": "after"
+      },
+      {
+       "label": "절의 S",
+       "hint": "",
+       "answer": "I"
+      },
+      {
+       "label": "절의 V (시제!)",
+       "hint": "",
+       "answer": "left"
+      },
+      {
+       "label": "절의 나머지",
+       "hint": "",
+       "answer": "work yesterday"
+      }
+     ],
+     "answer": "I met my friend after I left work yesterday.",
+     "explain": ""
+    }
+   ]
+  },
+  {
+   "id": "n4b",
+   "week": 4,
+   "title": "4주 ② 명사절 · 관계절",
+   "questions": [
+    {
+     "id": "k1",
+     "type": "build",
+     "tag": "간접의문문",
+     "level": "",
+     "ko": "나는 그가 왜 회의를 취소했는지 모른다.",
+     "hint": "",
+     "bone": "",
+     "slots": [
+      {
+       "label": "주절 (전체)",
+       "hint": "",
+       "answer": "I don't know"
+      },
+      {
+       "label": "의문사",
+       "hint": "",
+       "answer": "why"
+      },
+      {
+       "label": "절의 S",
+       "hint": "",
+       "answer": "he"
+      },
+      {
+       "label": "절의 V (시제!)",
+       "hint": "평서문 어순",
+       "answer": "canceled"
+      },
+      {
+       "label": "절의 나머지",
+       "hint": "",
+       "answer": "the meeting"
+      }
+     ],
+     "answer": "I don't know why he canceled the meeting.",
+     "explain": "의문사 절도 S+V 순서 그대로 (why did he cancel X)."
+    },
+    {
+     "id": "k2",
+     "type": "build",
+     "tag": "관계절",
+     "level": "",
+     "ko": "내가 어제 산 셔츠는 너무 작다.",
+     "hint": "",
+     "bone": "",
+     "slots": [
+      {
+       "label": "S 핵심",
+       "hint": "",
+       "answer": "The shirt"
+      },
+      {
+       "label": "S를 꾸미는 절",
+       "hint": "",
+       "answer": "that I bought yesterday"
+      },
+      {
+       "label": "V 동사",
+       "hint": "",
+       "answer": "is"
+      },
+      {
+       "label": "C 보어",
+       "hint": "",
+       "answer": "too small"
+      }
+     ],
+     "answer": "The shirt that I bought yesterday is too small.",
+     "explain": "꾸미는 절이 길어도 V는 핵심(shirt)에 맞춰요."
+    },
+    {
+     "id": "k3",
+     "type": "build",
+     "tag": "that 명사절",
+     "level": "",
+     "ko": "나는 그녀가 진실을 말했다고 생각한다.",
+     "hint": "",
+     "bone": "",
+     "slots": [
+      {
+       "label": "주절 (전체)",
+       "hint": "",
+       "answer": "I think"
+      },
+      {
+       "label": "접속사",
+       "hint": "생략 가능",
+       "answer": "that"
+      },
+      {
+       "label": "절의 S",
+       "hint": "",
+       "answer": "she"
+      },
+      {
+       "label": "절의 V (시제!)",
+       "hint": "",
+       "answer": "told"
+      },
+      {
+       "label": "절의 나머지",
+       "hint": "",
+       "answer": "the truth"
+      }
+     ],
+     "answer": "I think (that) she told the truth.",
+     "explain": ""
+    },
+    {
+     "id": "k4",
+     "type": "choice",
+     "tag": "관계부사",
+     "level": "",
+     "ko": "This is the café ___ we first met.",
+     "options": [
+      "which",
+      "where"
+     ],
+     "answer": "where",
+     "explain": "뒤 문장(we first met)이 이미 완전 → 관계부사 where."
+    },
+    {
+     "id": "k5",
+     "type": "choice",
+     "tag": "감정 -ing/-ed",
+     "level": "",
+     "ko": "The movie was so ___ that I fell asleep.",
+     "options": [
+      "boring",
+      "bored"
+     ],
+     "answer": "boring",
+     "explain": "영화가 지루함을 '유발' → -ing. 사람이 느끼면 bored."
+    },
+    {
+     "id": "k6",
+     "type": "choice",
+     "tag": "불가산",
+     "level": "",
+     "ko": "He gave me ___.",
+     "options": [
+      "an advice",
+      "some advice"
+     ],
+     "answer": "some advice",
+     "explain": "advice는 셀 수 없음."
+    }
+   ]
+  },
+  {
+   "id": "n4c",
+   "week": 4,
+   "title": "4주 ③ 진단 재시험",
+   "questions": [
+    {
+     "id": "t1",
+     "tag": "explain (12번)",
+     "level": "err",
+     "ko": "그는 우리에게 그 규칙에 대해 아무것도 설명하지 않았다.",
+     "hint": "",
+     "bone": "",
+     "answer": "He didn't explain anything to us about the rule.",
+     "explain": "explain + 무엇을 + <b>to 사람</b>."
+    },
+    {
+     "id": "t2",
+     "tag": "현재완료진행 (13번)",
+     "level": "",
+     "ko": "나는 대학을 졸업한 이후로 계속 영어를 공부하고 있다.",
+     "hint": "",
+     "bone": "",
+     "answer": "I've been studying English since I graduated from college.",
+     "explain": "since + 과거, 주절 현재완료(진행)."
+    },
+    {
+     "id": "t3",
+     "tag": "가목적어 it (14번)",
+     "level": "err",
+     "ko": "충분한 수면은 우리가 집중하는 것을 더 쉽게 만들어 준다.",
+     "hint": "",
+     "bone": "",
+     "answer": "Enough sleep makes it easier for us to focus.",
+     "explain": "makes it easier for us to V. (Getting enough sleep makes ~ 도 OK)"
+    },
+    {
+     "id": "t4",
+     "tag": "단복수·online·for (15번)",
+     "level": "err",
+     "ko": "내가 지난주에 온라인으로 산 바지는 나에게 너무 길다.",
+     "hint": "",
+     "bone": "",
+     "answer": "The pants that I bought online last week are too long for me.",
+     "explain": "pants 복수 → are. online 앞 on X. for me."
+    },
+    {
+     "id": "t5",
+     "tag": "동명사 주어 (16번)",
+     "level": "warn",
+     "ko": "매일 밤 늦게 자는 것은 건강에 나쁘다.",
+     "hint": "",
+     "bone": "",
+     "answer": "Going to bed late every night is bad for your health.",
+     "explain": "-ing 주어 + is."
+    },
+    {
+     "id": "t6",
+     "tag": "부사절 시제 (17번)",
+     "level": "err",
+     "ko": "그녀는 어젯밤 잠자리에 들기 전에 책을 읽었다.",
+     "hint": "",
+     "bone": "",
+     "answer": "She read a book before she went to bed last night.",
+     "explain": "과거 → before she went."
+    },
+    {
+     "id": "t7",
+     "tag": "because + 절 (18번)",
+     "level": "",
+     "ko": "눈이 많이 오고 있었기 때문에, 우리는 수업을 취소하기로 결정했다.",
+     "hint": "",
+     "bone": "",
+     "answer": "Because it was snowing heavily, we decided to cancel the class.",
+     "explain": "because + it was snowing."
+    }
+   ]
+  },
+  {
    "id": "day1",
-   "title": "1주 · 10분 훈련 (기본)",
+   "title": "추가 · 10분 훈련 (기본)",
    "questions": [
     {
      "id": "q1",
@@ -66,12 +1929,12 @@
      "explain": "• 셔츠 한 벌은 단수 <b>shirt</b> (+ 동사 <b>is</b>)<br>• <b>online</b>은 부사이므로 앞에 on 금지!<br>• 치수가 나에게 맞다/작다 할 때는 <b>for me</b>!"
     }
    ],
-   "week": 1
+   "week": 0
   },
   {
    "id": "w1concept",
-   "week": 1,
-   "title": "1주 · 1~5형식 개념 퀴즈",
+   "week": 0,
+   "title": "추가 · 1~5형식 개념 퀴즈",
    "questions": [
     {
      "id": "c1",
@@ -165,8 +2028,8 @@
   },
   {
    "id": "w1judge",
-   "week": 1,
-   "title": "1주 · 형식 판별",
+   "week": 0,
+   "title": "추가 · 형식 판별",
    "questions": [
     {
      "id": "j1",
@@ -238,8 +2101,8 @@
   },
   {
    "id": "w1w234",
-   "week": 1,
-   "title": "1주 · 2·3·4형식 영작",
+   "week": 0,
+   "title": "추가 · 2·3·4형식 영작",
    "questions": [
     {
      "id": "a1",
@@ -305,8 +2168,8 @@
   },
   {
    "id": "w1w5",
-   "week": 1,
-   "title": "1주 · 5형식 집중",
+   "week": 0,
+   "title": "추가 · 5형식 집중",
    "questions": [
     {
      "id": "b1",
@@ -372,8 +2235,8 @@
   },
   {
    "id": "w2adv",
-   "week": 2,
-   "title": "2주 · 전치사 금지 부사",
+   "week": 0,
+   "title": "추가 · 전치사 금지 부사",
    "questions": [
     {
      "id": "d1",
@@ -439,8 +2302,8 @@
   },
   {
    "id": "w2tofor",
-   "week": 2,
-   "title": "2주 · to vs for",
+   "week": 0,
+   "title": "추가 · to vs for",
    "questions": [
     {
      "id": "e1",
@@ -506,8 +2369,8 @@
   },
   {
    "id": "w2verb",
-   "week": 2,
-   "title": "2주 · 자동사 vs 타동사",
+   "week": 0,
+   "title": "추가 · 자동사 vs 타동사",
    "questions": [
     {
      "id": "f1",
@@ -573,8 +2436,8 @@
   },
   {
    "id": "w3clause",
-   "week": 3,
-   "title": "3주 · 부사절 시제",
+   "week": 0,
+   "title": "추가 · 부사절 시제",
    "questions": [
     {
      "id": "g1",
@@ -640,8 +2503,8 @@
   },
   {
    "id": "w3perfect",
-   "week": 3,
-   "title": "3주 · 완료 · 완료진행",
+   "week": 0,
+   "title": "추가 · 완료 · 완료진행",
    "questions": [
     {
      "id": "h1",
@@ -707,8 +2570,8 @@
   },
   {
    "id": "w3state",
-   "week": 3,
-   "title": "3주 · 상태동사 vs 동작",
+   "week": 0,
+   "title": "추가 · 상태동사 vs 동작",
    "questions": [
     {
      "id": "k1",
@@ -774,8 +2637,8 @@
   },
   {
    "id": "w4ger",
-   "week": 4,
-   "title": "4주 · 동명사 · to부정사",
+   "week": 0,
+   "title": "추가 · 동명사 · to부정사",
    "questions": [
     {
      "id": "m1",
@@ -841,8 +2704,8 @@
   },
   {
    "id": "w4because",
-   "week": 4,
-   "title": "4주 · because vs because of",
+   "week": 0,
+   "title": "추가 · because vs because of",
    "questions": [
     {
      "id": "n1",
@@ -908,8 +2771,8 @@
   },
   {
    "id": "w4review",
-   "week": 4,
-   "title": "4주 · 오답 Top6 종합 복습",
+   "week": 0,
+   "title": "추가 · 오답 Top6 종합 복습",
    "questions": [
     {
      "id": "r1",
@@ -1013,6 +2876,14 @@
  ],
  "cheatsheet": [
   {
+   "title": "품사 → 들어갈 수 있는 자리",
+   "body": "• <b>명사</b> → 주어(S) · 목적어(O) · 보어(C)<br>• <b>형용사</b> → 보어(C), 명사 꾸미기<br>• <b>부사</b> → 수식어(M)만 (보어 X)<br>• <b>전치사+명사</b> → 수식어(M)<br>• 동사를 주어/목적어로 → <b>-ing</b> 또는 <b>to V</b>"
+  },
+  {
+   "title": "영작 4단계 (자리 조립)",
+   "body": "① <b>동사</b> 먼저 찾기<br>② 동사가 정하는 <b>형식</b>(빈칸 개수) 확인<br>③ 각 칸에 맞는 <b>품사</b>로 채우기<br>④ 마지막에 <b>수식어</b>(언제/어디서/누구에게) 붙이기"
+  },
+  {
    "title": "1형식 (누가 + 간다/일어난다)",
    "body": "An accident <b>happened</b> last night. (수동태 불가!)"
   },
@@ -1035,56 +2906,56 @@
  ],
  "mistakes": [
   {
-   "title": "5형식 가목적어 it",
-   "wrong": "makes us easy to keep",
-   "right": "makes it easier for us to stay"
+   "title": "5형식 가목적어 it (14번)",
+   "wrong": "makes us easy to keep us healthy",
+   "right": "makes it easier for us to stay healthy"
   },
   {
-   "title": "2형식 감각동사 + 형용사",
-   "wrong": "smells wonderfully",
-   "right": "smells wonderful"
+   "title": "부사 앞 전치사 · for me (15번)",
+   "wrong": "on online ... too small to me",
+   "right": "online ... too small for me"
   },
   {
-   "title": "4형식 어순 & 3형식 explain/suggest",
-   "wrong": "suggested me an idea",
-   "right": "suggested an idea to me"
+   "title": "explain + to 사람 (12번)",
+   "wrong": "explained nothing about that problem",
+   "right": "didn't explain anything to me about the problem"
   },
   {
-   "title": "5형식 일반(to V) vs 사역(원형)",
-   "wrong": "allowed me leave",
-   "right": "allowed me to leave"
-  },
-  {
-   "title": "단복수(shirt/news) & 부사(online)",
-   "wrong": "shirts... on online is... to me",
-   "right": "shirt... online is... for me"
-  },
-  {
-   "title": "과거 시간 부사절 시제 일치",
+   "title": "부사절 시제 일치 (17번)",
    "wrong": "before I have slept",
-   "right": "before I went to bed"
+   "right": "before I went to bed last night"
+  },
+  {
+   "title": "단복수 수일치 (15번)",
+   "wrong": "The shirts ... is",
+   "right": "The shirt ... is"
+  },
+  {
+   "title": "동명사 주어 · 명사 보어 (16번)",
+   "wrong": "To give up ... is wasting time",
+   "right": "Giving up ... is a waste of time"
   }
  ],
  "roadmap": [
   {
-   "id": "w1",
-   "title": "1주 차: 문장 뼈대 바로잡기",
-   "desc": "1~5형식 어순, explain/suggest, 가목적어 it, shirt/news"
+   "id": "r1",
+   "title": "1주 차: 품사와 문장성분 (한국어로 이해)",
+   "desc": "품사 8개, 성분 5개, '품사가 자리를 정한다'"
   },
   {
-   "id": "w2",
-   "title": "2주 차: 전치사 감각과 부사의 독립",
-   "desc": "전치사 금지 부사(online, home), to vs for, 자·타동사"
+   "id": "r2",
+   "title": "2주 차: 영어 문장 분해",
+   "desc": "읽은 문장에 S·V·O·C·M 표시, 형식 판별"
   },
   {
-   "id": "w3",
-   "title": "3주 차: 시제 디테일과 원어민 패턴",
-   "desc": "시간/조건 부사절 시제 일치, 완료진행형, 상태 vs 동작"
+   "id": "r3",
+   "title": "3주 차: 자리 조립 영작",
+   "desc": "동사 → 형식 → 칸 채우기 → 수식어"
   },
   {
-   "id": "w4",
-   "title": "4주 차: 준동사와 복합문 고급 영작",
-   "desc": "동명사 주어(Giving up~), because vs because of 전환"
+   "id": "r4",
+   "title": "4주 차: 절 안의 절 + 진단 재시험",
+   "desc": "부사절 시제, 명사절·관계절, 12~18번 재도전"
   }
  ]
 }
