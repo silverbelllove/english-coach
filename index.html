@@ -62,6 +62,11 @@
   .btn.small { flex: none; padding: 7px 10px; font-size: .78rem; }
   .feedback { display: none; margin-top: 12px; padding: 13px; border-radius: 12px; background: var(--soft); font-size: .88rem; line-height: 1.55; }
   .feedback.show { display: block; }
+  .btn.ai { background: #0EA5E9; }
+  .ai-box:empty { display: none; }
+  .ai-box { margin-top: 10px; padding: 12px; border-radius: 12px; border: 1.5px solid #7DD3FC; font-size: .88rem; line-height: 1.55; }
+  .ai-box .v { font-weight: 800; margin-bottom: 4px; }
+  .ai-box .fix { font-weight: 700; color: var(--primary); margin: 4px 0; }
   .feedback .ans { font-weight: 700; color: var(--primary); font-size: .96rem; margin-bottom: 6px; }
   .grade { margin-top: 10px; }
   .result { font-size: .78rem; font-weight: 700; float: right; }
@@ -120,6 +125,14 @@
 
   <div class="section" id="sec-manage">
     <div class="card">
+      <h3>🤖 AI 채점 (Gemini)</h3>
+      <p class="muted" style="margin-bottom:10px">Google AI Studio에서 무료 API 키를 받아 붙여넣으면, 문제마다 [🤖 AI 채점] 버튼이 생겨요. 키는 <b>이 폰에만</b> 저장되고 어디에도 올라가지 않아요.</p>
+      <input type="text" id="aiKey" placeholder="AIza... 로 시작하는 키" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <input type="text" id="aiModel" placeholder="모델 (기본: gemini-flash-latest)" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <div class="row"><button class="btn" onclick="saveAi()">저장</button><button class="btn sub" onclick="testAi()">연결 테스트</button></div>
+      <p class="muted" id="aiStatus" style="margin-top:8px"></p>
+    </div>
+    <div class="card">
       <h3>➕ 새 문제 추가</h3>
       <p class="muted" style="margin-bottom:10px">① 아래 버튼으로 문제 생성 프롬프트를 복사해서 Claude나 Gemini에 붙여넣으세요. ② AI가 준 JSON을 여기에 붙여넣고 [추가]를 누르면 끝이에요.</p>
       <div class="row" style="margin-bottom:10px"><button class="btn sub" onclick="copyPrompt()">📋 문제 생성 프롬프트 복사</button></div>
@@ -146,7 +159,7 @@
 </nav>
 
 <script>
-const APP_VERSION = '2.0.0';
+const APP_VERSION = '2.1.0';
 const KEY = 'coach_v1';
 let content = { sets: [], cheatsheet: [], mistakes: [], roadmap: [] };
 const WEEKS = [['all', '전체'], [1, '1주'], [2, '2주'], [3, '3주'], [4, '4주'], [0, '추가 연습'], ['mine', '내 세트']];
@@ -191,7 +204,8 @@ function renderQ(cur, q, i) {
   const slotAns = type === 'build' ? `<div class="slot-ans">${q.slots.map(sl => `<div><span class="slot-l">${esc(sl.label)}</span> ${esc(sl.answer)}</div>`).join('')}</div>` : '';
   return `<div class="card" data-k="${esc(k)}">${head}${slots}
       <input type="text" data-input="${esc(k)}" value="${esc(st.answers[k] || '')}" placeholder="${esc(q.placeholder || '영어로 직접 입력해 보세요')}" autocapitalize="sentences" autocomplete="off" spellcheck="false">
-      <div class="row"><button class="btn" data-toggle="${esc(k)}">모범 답안 & 해설</button></div>
+      <div class="row">${aiKey() ? `<button class="btn ai" data-ai="${esc(k)}">🤖 AI 채점</button>` : ''}<button class="btn ${aiKey() ? 'sub' : ''}" data-toggle="${esc(k)}">모범 답안 & 해설</button></div>
+      <div class="ai-box" id="ai-${esc(k)}">${st.ai && st.ai[k] ? aiHtml(st.ai[k]) : ''}</div>
       <div class="feedback" id="fb-${esc(k)}">${slotAns}
         <div class="ans">✅ ${esc(q.answer)}</div>
         <div>${q.explain || ''}</div>${gradeBtns(k)}
@@ -228,6 +242,8 @@ $('questions').addEventListener('click', e => {
     const y = window.scrollY; renderTrain(); renderWrong(); window.scrollTo(0, y);
     toast(st.results[k] === 'ok' ? '정답! 👍' : '오답노트에 담았어요'); return;
   }
+  const ai = e.target.closest('[data-ai]');
+  if (ai) { aiGrade(ai.dataset.k || ai.dataset.ai); return; }
   const g = e.target.closest('[data-grade]');
   if (g) {
     st.results[g.dataset.k] = g.dataset.grade; save();
@@ -240,7 +256,7 @@ $('questions').addEventListener('click', e => {
 });
 function resetSet() {
   const cur = currentSet(); if (!cur || !confirm('이 세트의 답안과 채점 기록을 지울까요? (오답노트에서도 빠져요)')) return;
-  cur.questions.forEach(q => { const k = qkey(cur, q); delete st.answers[k]; delete st.results[k]; (q.slots || []).forEach((_, j) => delete st.answers[k + '#' + j]); });
+  cur.questions.forEach(q => { const k = qkey(cur, q); delete st.answers[k]; delete st.results[k]; if (st.ai) delete st.ai[k]; (q.slots || []).forEach((_, j) => delete st.answers[k + '#' + j]); });
   save(); renderTrain(); renderWrong();
 }
 function copyAnswers() {
@@ -332,6 +348,58 @@ $('extraSets').addEventListener('click', e => {
   const b = e.target.closest('[data-del]'); if (!b || !confirm('이 세트를 삭제할까요?')) return;
   st.extraSets = st.extraSets.filter(s => s.id !== b.dataset.del); save(); renderAll();
 });
+const AI_KEY = 'coach_gemini_key', AI_MODEL = 'coach_gemini_model';
+const ls = (k, v) => { try { if (v === undefined) return localStorage.getItem(k) || ''; v ? localStorage.setItem(k, v) : localStorage.removeItem(k); } catch (e) { return ''; } };
+const aiKey = () => ls(AI_KEY);
+const aiModel = () => ls(AI_MODEL) || 'gemini-flash-latest';
+function saveAi() { ls(AI_KEY, $('aiKey').value.trim()); ls(AI_MODEL, $('aiModel').value.trim()); renderTrain(); $('aiStatus').textContent = aiKey() ? '저장했어요. [연결 테스트]로 확인해 보세요.' : 'AI 채점을 껐어요.'; }
+async function callGemini(prompt) {
+  const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(aiModel())}:generateContent`, {
+    method: 'POST', headers: { 'Content-Type': 'application/json', 'x-goog-api-key': aiKey() },
+    body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }], generationConfig: { responseMimeType: 'application/json', temperature: 0.2 } })
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error((data.error && data.error.message) || ('HTTP ' + res.status));
+  const text = data.candidates?.[0]?.content?.parts?.map(p => p.text).join('') || '';
+  return extractJson(text);
+}
+async function testAi() {
+  $('aiStatus').textContent = '확인 중...';
+  try { await callGemini('Return JSON {"ok":true}'); $('aiStatus').textContent = '✅ 연결됐어요! 훈련 탭에서 [🤖 AI 채점]을 눌러 보세요.'; }
+  catch (e) { $('aiStatus').textContent = '❌ 실패: ' + e.message; }
+}
+function aiHtml(r) {
+  const v = { ok: ['⭕ 정답', 'var(--ok)'], partial: ['△ 거의 맞음', 'var(--warn)'], ng: ['❌ 다시', 'var(--err)'] }[r.verdict] || ['결과', 'var(--text)'];
+  return `<div class="v" style="color:${v[1]}">${v[0]}</div>${r.corrected ? `<div class="fix">✏️ ${esc(r.corrected)}</div>` : ''}<div>${esc(r.feedback || '').replace(/\n/g, '<br>')}</div>`;
+}
+async function aiGrade(k) {
+  const box = $('ai-' + k), [sid, qid] = k.split(':');
+  const q = allSets().find(x => x.id === sid).questions.find(x => x.id === qid);
+  const mine = (st.answers[k] || '').trim();
+  const slots = (q.slots || []).map((sl, j) => `${sl.label}: ${(st.answers[k + '#' + j] || '').trim() || '(비움)'}`).join('\n');
+  if (!mine && !slots.replace(/.*\(비움\)\n?/g, '').trim()) { toast('먼저 답을 입력해 주세요'); return; }
+  box.innerHTML = '<div class="muted">🤖 채점 중...</div>';
+  const prompt = `너는 한국인 학습자의 영어 영작 코치야. 이 학습자는 문법 규칙은 알지만 문장성분(S·V·O·C·M)과 품사 개념이 약해서, 한국어 어순대로 쓰다가 문장이 무너지는 게 핵심 문제야.
+문제(한국어 또는 지시): ${q.ko.replace(/<[^>]+>|\[\[|\]\]/g, '')}
+${q.sentence ? '대상 문장: ' + q.sentence.replace(/\[\[|\]\]/g, '') + '\n' : ''}모범 답안: ${q.answer}
+${slots ? '학습자가 채운 칸:\n' + slots + '\n' : ''}학습자 답: ${mine || '(없음)'}
+
+다음을 지켜서 채점해 줘.
+- 모범 답안과 달라도 문법적으로 맞고 자연스러우면 정답(ok). 사소한 어색함만 있으면 partial. 문법 오류가 있으면 ng.
+- 틀린 부분은 '어느 자리(성분)에 어떤 품사가 와야 하는데 무엇을 넣었는지'로 설명해. 한국어, 3~5문장, 짧게.
+- 오타나 대소문자, 마침표는 지적만 하고 판정에는 반영하지 마.
+JSON만 출력: {"verdict":"ok|partial|ng","corrected":"고친 문장 (정답이면 빈 문자열)","feedback":"설명"}`;
+  try {
+    const r = await callGemini(prompt);
+    st.ai = st.ai || {}; st.ai[k] = r;
+    if (r.verdict === 'ok' || r.verdict === 'ng') st.results[k] = r.verdict; else if (r.verdict === 'partial') st.results[k] = 'ng';
+    save(); box.innerHTML = aiHtml(r);
+    const card = box.closest('.card'); let tag = card.querySelector('.result');
+    if (!tag) { tag = document.createElement('span'); card.prepend(tag); }
+    tag.className = 'result ' + st.results[k]; tag.textContent = st.results[k] === 'ok' ? '⭕ 맞음' : '❌ 틀림';
+    renderProgress(); renderWrong();
+  } catch (e) { box.innerHTML = `<div class="muted">❌ AI 채점 실패: ${esc(e.message)}<br>[관리] 탭에서 키를 확인해 주세요.</div>`; }
+}
 function copyBackup() { copyText(JSON.stringify({ app: 'english-coach', savedAt: new Date().toISOString(), data: st }), '백업을 복사했어요. 메모 앱에 붙여넣어 보관하세요.'); }
 function restore() {
   try {
@@ -352,6 +420,7 @@ document.querySelector('.bottom-nav').addEventListener('click', e => { const b =
 function renderAll() { renderTrain(); renderStatic(); renderWrong(); renderExtra(); }
 
 $('ver').textContent = 'v' + APP_VERSION;
+$('aiKey').value = aiKey(); $('aiModel').value = ls(AI_MODEL);
 fetch('content.json', { cache: 'no-cache' }).then(r => r.json()).then(c => { content = c; renderAll(); })
   .catch(() => { $('questions').innerHTML = '<div class="card empty">문제 파일을 불러오지 못했어요. 인터넷 연결 후 다시 열어 주세요.</div>'; });
 if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js');
